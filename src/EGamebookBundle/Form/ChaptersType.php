@@ -3,6 +3,10 @@
 namespace EGamebookBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,12 +17,12 @@ class ChaptersType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('number')
-            ->add('content')
-            ->add('media')
-            ->add('decision')
-            ->add('buttonText')
-            ;
+        $builder->add('number', IntegerType::class)
+            ->add('content', TextareaType::class)
+            ->add('media', TextType::class) // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
+            ->add('decision', TextareaType::class)
+            ->add('buttonText', TextType::class)
+           // ->getForm(); ??
     }
     
     /**

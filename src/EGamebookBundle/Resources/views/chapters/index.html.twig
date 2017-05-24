@@ -10,13 +10,13 @@
                 <th>Content</th>
                 <th>Media</th>
                 <th>Decision</th>
+                <th>Button Text</th>
             </tr>
         </thead>
         <tbody>
         {% for chapter in chapters %}
             <tr>
-                <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.id }}</a></td>
-                <td>{{ chapter.number }}</td>
+                <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a></td>
                 <td>{{ chapter.content }}</td>
                 <td>{{ chapter.media }}</td>
                 <td>{{ chapter.decision }}</td>
@@ -30,7 +30,7 @@
                             <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
                         </li>
                         <li>
-                            <a href="{{ path('chapters_new_relations') }}">new relations</a>
+                            <a href="{{ path('chapters_new_relations', { 'id': chapter.id }) }}">new relations</a>
                         </li>
                     </ul>
                 </td>

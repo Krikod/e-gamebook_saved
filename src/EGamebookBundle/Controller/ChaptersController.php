@@ -38,6 +38,7 @@ class ChaptersController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $chapter = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapter);
             $em->flush();
@@ -126,14 +127,33 @@ class ChaptersController extends Controller
      * Creates new relations between chapters.
      *
      */
-    public function newRelationsAction() // TERMINER CETTE METHODE
+    public function newRelationsAction(Chapters $chapter, $childDependencies)
     {
-        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $childDependencies);
+        $form->handleRequest($request);
 
-        $chapters = $em->getRepository('EGamebookBundle:Chapters')->findAll();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($childDependencies);
+            $em->flush();
+
+            return $this->redirectToRoute('{id}/chapters_new_relations', array('id' => $childDependencies->getId()));
+        }
 
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
-            'chapters' => $chapters,
+            'childDependencies' => $childDependencies,
+            'form' => $form->createView(),
         ));
     }
+    // + méthode CHOISIR CHAPTER en 1er !!
+    // + Condition Chapter sans childDependencies = possible
+    // + parentDependencies ?
+
+    // On a déjà dans l'entité:
+//    public function __construct()
+//    {
+//        $this->parentDependencies = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->childDependencies = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
 }
+
