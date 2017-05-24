@@ -7,7 +7,7 @@ namespace EGamebookBundle\Entity;
  */
 class Chapters
 {
-
+    
     /**
      * @var integer
      */
@@ -29,19 +29,14 @@ class Chapters
     private $media;
 
     /**
-     * @var array
+     * @var string
      */
-    private $fromChapters;
-
-    /**
-     * @var array
-     */
-    private $toChapters;
+    private $decision;
 
     /**
      * @var string
      */
-    private $decision;
+    private $buttonText;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -145,54 +140,6 @@ class Chapters
     }
 
     /**
-     * Set fromChapters
-     *
-     * @param array $fromChapters
-     *
-     * @return Chapters
-     */
-    public function setFromChapters($fromChapters)
-    {
-        $this->fromChapters = $fromChapters;
-
-        return $this;
-    }
-
-    /**
-     * Get fromChapters
-     *
-     * @return array
-     */
-    public function getFromChapters()
-    {
-        return $this->fromChapters;
-    }
-
-    /**
-     * Set toChapters
-     *
-     * @param array $toChapters
-     *
-     * @return Chapters
-     */
-    public function setToChapters($toChapters)
-    {
-        $this->toChapters = $toChapters;
-
-        return $this;
-    }
-
-    /**
-     * Get toChapters
-     *
-     * @return array
-     */
-    public function getToChapters()
-    {
-        return $this->toChapters;
-    }
-
-    /**
      * Set decision
      *
      * @param string $decision
@@ -214,6 +161,30 @@ class Chapters
     public function getDecision()
     {
         return $this->decision;
+    }
+
+    /**
+     * Set buttonText
+     *
+     * @param string $buttonText
+     *
+     * @return Chapters
+     */
+    public function setButtonText($buttonText)
+    {
+        $this->buttonText = $buttonText;
+
+        return $this;
+    }
+
+    /**
+     * Get buttonText
+     *
+     * @return string
+     */
+    public function getButtonText()
+    {
+        return $this->buttonText;
     }
 
     /**

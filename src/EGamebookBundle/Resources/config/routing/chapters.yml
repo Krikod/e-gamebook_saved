@@ -24,6 +24,6 @@ chapters_delete:
     methods:  DELETE
 
 chapters_new_relations:
-    path:     /new_relations
+    path:     /{id}new_relations
     defaults: { _controller: "EGamebookBundle:Chapters:newRelations" }
-    methods:  [GET, POST]
+

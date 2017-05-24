@@ -123,17 +123,17 @@ class ChaptersController extends Controller
     }
 
     /**
-     * Creates a new relation between Chapters by first selecting a page.
+     * Creates new relations between chapters.
      *
      */
-    public function newRelationsAction (Request $request)
+    public function newRelationsAction() // TERMINER CETTE METHODE
     {
         $em = $this->getDoctrine()->getManager();
-        $RAW_QUERY = 'SELECT * FROM chapters where chapters.number = ?;';
-        $statement = $em->getConnection()->prepare($RAW_QUERY);
-        $statement->execute();
 
-        $result = $statement->fetchAll();
+        $chapters = $em->getRepository('EGamebookBundle:Chapters')->findAll();
+
+        return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
+            'chapters' => $chapters,
+        ));
     }
-
 }

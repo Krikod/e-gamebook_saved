@@ -19,9 +19,8 @@
                 <td>{{ chapter.number }}</td>
                 <td>{{ chapter.content }}</td>
                 <td>{{ chapter.media }}</td>
-                <td>{% if chapter.fromChapters %}{{ chapter.fromChapters|join(', ') }}{% endif %}</td>
-                <td>{% if chapter.toChapters %}{{ chapter.toChapters|join(', ') }}{% endif %}</td>
                 <td>{{ chapter.decision }}</td>
+                <td>{{ chapter.buttonText }}</td>
                 <td>
                     <ul>
                         <li>
@@ -29,6 +28,9 @@
                         </li>
                         <li>
                             <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('chapters_new_relations') }}">new relations</a>
                         </li>
                     </ul>
                 </td>
@@ -40,9 +42,6 @@
     <ul>
         <li>
             <a href="{{ path('chapters_new') }}">Create a new chapter</a>
-        </li>
-        <li>
-            <a href="{{ path('chapters_new_relations') }}">Create new relations</a>
         </li>
     </ul>
 {% endblock %}

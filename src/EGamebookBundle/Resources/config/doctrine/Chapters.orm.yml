@@ -17,13 +17,11 @@ EGamebookBundle\Entity\Chapters:
             type: string
             length: 255
             nullable: true
-        fromChapters:
-            type: array
-            nullable: true
-        toChapters:
-            type: array
         decision:
             type: text
+        buttonText:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }
 #
 #

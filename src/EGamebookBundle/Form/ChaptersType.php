@@ -17,6 +17,7 @@ class ChaptersType extends AbstractType
             ->add('content')
             ->add('media')
             ->add('decision')
+            ->add('buttonText')
             ;
     }
     
