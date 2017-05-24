@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Chapter</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Number</th>
+                <td>{{ chapter.number }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ chapter.content }}</td>
+            </tr>
+            <tr>
+                <th>Media</th>
+                <td>{{ chapter.media }}</td>
+            </tr>
+            <tr>
+                <th>Decision</th>
+                <td>{{ chapter.decision }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chapters_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

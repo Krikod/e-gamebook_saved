@@ -1,0 +1,57 @@
+EGamebookBundle\Entity\Chapters:
+    type: entity
+    table: null
+    repositoryClass: EGamebookBundle\Repository\ChaptersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        number:
+            type: integer
+        content:
+            type: text
+        media:
+            type: string
+            length: 255
+            nullable: true
+        fromChapters:
+            type: array
+            nullable: true
+        toChapters:
+            type: array
+        decision:
+            type: text
+    lifecycleCallbacks: {  }
+#
+#
+#    manyToMany:
+#        targetEntity: EGamebookBundle\Entity\Chapters
+#        mappedBy: toChapters
+#        inversedBy: fromChapters
+#        joinTable:
+#            name: chapt_relations
+#            joinColumns:
+#                name: chapt_id
+#                        referencedColumnName: id
+#            inverseJoinColumns:
+#                name: chapt_relations_id
+#                        referencedColumnName: id
+#
+    manyToMany:
+        parentDependencies:
+            targetEntity: EGamebookBundle\Entity\Chapters
+            inversedBy: childDependencies
+            joinTable:
+                name: chapt_relations
+                joinColumns:
+                    child_chapter:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    parent_chapter:
+                        referencedColumnName: id
+        childDependencies:
+            targetEntity: EGamebookBundle\Entity\Chapters
+            mappedBy: parentDependencies

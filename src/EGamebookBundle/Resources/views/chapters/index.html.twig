@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chapters list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Content</th>
+                <th>Media</th>
+                <th>Decision</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chapter in chapters %}
+            <tr>
+                <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.id }}</a></td>
+                <td>{{ chapter.number }}</td>
+                <td>{{ chapter.content }}</td>
+                <td>{{ chapter.media }}</td>
+                <td>{% if chapter.fromChapters %}{{ chapter.fromChapters|join(', ') }}{% endif %}</td>
+                <td>{% if chapter.toChapters %}{{ chapter.toChapters|join(', ') }}{% endif %}</td>
+                <td>{{ chapter.decision }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('chapters_new') }}">Create a new chapter</a>
+        </li>
+        <li>
+            <a href="{{ path('chapters_new_relations') }}">Create new relations</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -2,12 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}e-gamebook{% endblock %}</title>
+        {% block stylesheets %}
+            <!--Import Google Icon Font-->
+            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!--Import materialize.css-->
+            <link type="text/css" rel="stylesheet" href="{{ asset('materialize/css/materialize.min.css') }}"  media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="{{ asset('public/egamebook_style.css') }}"  media="screen,projection"/>
+        {% endblock %}
+        <!--Website optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block menu %}{% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <!--Import jQuery before materialize.js-->
+            <script type="text/javascript" src="ass://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script type="text/javascript" src="{{ asset('materialize/js/materialize.min.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

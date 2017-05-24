@@ -1,0 +1,4 @@
+services:
+#    e_gamebook.example:
+#        class: EGamebookBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

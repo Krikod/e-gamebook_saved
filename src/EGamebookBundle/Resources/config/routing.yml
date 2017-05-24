@@ -1,0 +1,7 @@
+e_gamebook_chapters:
+    resource: "@EGamebookBundle/Resources/config/routing/chapters.yml"
+    prefix:   /chapters
+
+e_gamebook_homepage:
+    path:     /
+    defaults: { _controller: EGamebookBundle:Default:index }
