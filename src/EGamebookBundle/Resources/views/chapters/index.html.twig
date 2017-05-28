@@ -11,6 +11,7 @@
                 <th>Media</th>
                 <th>Decision</th>
                 <th>Button Text</th>
+                {#<th>Child Chapter(s)</th>#}
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,7 @@
                 <td>{{ chapter.media }}</td>
                 <td>{{ chapter.decision }}</td>
                 <td>{{ chapter.buttonText }}</td>
+                {#<td><a href="{{ path('chapters_show', {'id': toChapters.chapter.id }) }}">{{ 'number': toChapter.number[] }}</a></td>#}
                 <td>
                     <ul>
                         <li>
@@ -30,7 +32,7 @@
                             <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
                         </li>
                         <li>
-                            <a href="{{ path('chapters_new_relations', { 'id': chapter.id }) }}">new relations</a>
+                            <a href="{{ path('chapters_relations', { 'id': chapter.id }) }}">new relations</a>
                         </li>
                     </ul>
                 </td>

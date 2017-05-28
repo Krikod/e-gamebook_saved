@@ -1,16 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Relations creation</h1>
+    <h1>Creation of Child Relations from Chapter {{ chapter.number }}</h1>
 
     {{ form_start(form) }}
+    <table>
+        <thead>
+        <tr>
+            <th>Child Chapter</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for chapter in chapters %}
+            <tr>
+                <td><a href="{{ path('chapters_show', {'id': toChapters.chapter.id }) }}">{{ 'number': toChapter.number }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     {{ form_widget(form) }}
-    <input type="submit" value="Create" />
+    <button class="btn waves-effect waves-light" type="submit" name="action">Create relation
+        <i class="material-icons right">send</i>
+    </button>
+
     {{ form_end(form) }}
 
     <ul>
         <li>
             <a href="{{ path('chapters_index') }}">Back to the list</a>
         </li>
+        <li>
+            <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show chapter</a>
+        </li>
+        <li>
+            <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit chapter</a>
+        </li>
     </ul>
 {% endblock %}
+
+

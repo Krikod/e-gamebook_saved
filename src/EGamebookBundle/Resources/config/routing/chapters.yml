@@ -4,7 +4,7 @@ chapters_index:
     methods:  GET
 
 chapters_show:
-    path:     /{id}/show
+    path:     /show/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:show" }
     methods:  GET
 
@@ -14,16 +14,17 @@ chapters_new:
     methods:  [GET, POST]
 
 chapters_edit:
-    path:     /{id}/edit
+    path:     /edit/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:edit" }
     methods:  [GET, POST]
 
 chapters_delete:
-    path:     /{id}/delete
+    path:     /delete/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:delete" }
     methods:  DELETE
 
-chapters_new_relations:
-    path:     /{id}/new_relations
+chapters_relations:
+    path:     /new_relations/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:newRelations" }
+    methods: [GET, POST]
 

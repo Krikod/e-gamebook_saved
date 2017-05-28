@@ -5,6 +5,7 @@ namespace EGamebookBundle\Controller;
 use EGamebookBundle\Entity\Chapters;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Chapter controller.
@@ -127,33 +128,33 @@ class ChaptersController extends Controller
      * Creates new relations between chapters.
      *
      */
-    public function newRelationsAction(Chapters $chapter, $childDependencies)
+    public function newRelationsAction(Request $request, Chapters $chapter, $id)
     {
-        $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $childDependencies);
+
+        $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $toChapters);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $toChapters = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($childDependencies);
-            $em->flush();
-
-            return $this->redirectToRoute('{id}/chapters_new_relations', array('id' => $childDependencies->getId()));
+            $toChapters = $em->getRepository('EGamebookBundle:Chapters')->findOneById($id);
+            return $this->redirectToRoute('chapters_index');
         }
-
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
-            'childDependencies' => $childDependencies,
             'form' => $form->createView(),
         ));
     }
-    // + méthode CHOISIR CHAPTER en 1er !!
-    // + Condition Chapter sans childDependencies = possible
-    // + parentDependencies ?
+//
 
-    // On a déjà dans l'entité:
-//    public function __construct()
-//    {
-//        $this->parentDependencies = new \Doctrine\Common\Collections\ArrayCollection();
-//        $this->childDependencies = new \Doctrine\Common\Collections\ArrayCollection();
-//    }
+//
+
+//            boucle if ()
+
 }
 
+//$toChapters->setNumber();
+//        $fromChapters->setNumber();
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($toChapters);
+//        $em->flush();
+//        return new Response('New child relation with Chapter ' . $toChapters->getNumber() . 'has been saved.');

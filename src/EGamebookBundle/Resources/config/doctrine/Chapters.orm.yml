@@ -28,7 +28,7 @@ EGamebookBundle\Entity\Chapters:
 #    manyToMany:
 #        targetEntity: EGamebookBundle\Entity\Chapters
 #        mappedBy: toChapters
-#        inversedBy: fromChapters
+#
 #        joinTable:
 #            name: chapt_relations
 #            joinColumns:
@@ -37,11 +37,11 @@ EGamebookBundle\Entity\Chapters:
 #            inverseJoinColumns:
 #                name: chapt_relations_id
 #                        referencedColumnName: id
-#
+#inversedBy: fromChapters
     manyToMany:
-        parentDependencies:
+        toChapters:
             targetEntity: EGamebookBundle\Entity\Chapters
-            inversedBy: childDependencies
+            mappedBy: fromChapters
             joinTable:
                 name: chapt_relations
                 joinColumns:
@@ -50,6 +50,6 @@ EGamebookBundle\Entity\Chapters:
                 inverseJoinColumns:
                     parent_chapter:
                         referencedColumnName: id
-        childDependencies:
+        fromChapters:
             targetEntity: EGamebookBundle\Entity\Chapters
-            mappedBy: parentDependencies
+            inversedBy: toChapters
