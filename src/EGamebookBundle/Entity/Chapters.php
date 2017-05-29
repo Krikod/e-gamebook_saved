@@ -7,7 +7,7 @@ namespace EGamebookBundle\Entity;
  */
 class Chapters
 {
-    
+
     /**
      * @var integer
      */
@@ -41,20 +41,20 @@ class Chapters
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $toChapters;
+    private $parents;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $fromChapters;
+    private $childs;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->toChapters = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->fromChapters = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->childs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -188,70 +188,70 @@ class Chapters
     }
 
     /**
-     * Add toChapter
+     * Add parent
      *
-     * @param \EGamebookBundle\Entity\Chapters $toChapter
+     * @param \EGamebookBundle\Entity\Chapters $parent
      *
      * @return Chapters
      */
-    public function addToChapter(\EGamebookBundle\Entity\Chapters $toChapter)
+    public function addParent(\EGamebookBundle\Entity\Chapters $parent)
     {
-        $this->toChapters[] = $toChapter;
+        $this->parents[] = $parent;
 
         return $this;
     }
 
     /**
-     * Remove toChapter
+     * Remove parent
      *
-     * @param \EGamebookBundle\Entity\Chapters $toChapter
+     * @param \EGamebookBundle\Entity\Chapters $parent
      */
-    public function removeToChapter(\EGamebookBundle\Entity\Chapters $toChapter)
+    public function removeParent(\EGamebookBundle\Entity\Chapters $parent)
     {
-        $this->toChapters->removeElement($toChapter);
+        $this->parents->removeElement($parent);
     }
 
     /**
-     * Get toChapters
+     * Get parents
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getToChapters()
+    public function getParents()
     {
-        return $this->toChapters;
+        return $this->parents;
     }
 
     /**
-     * Add fromChapter
+     * Add child
      *
-     * @param \EGamebookBundle\Entity\Chapters $fromChapter
+     * @param \EGamebookBundle\Entity\Chapters $child
      *
      * @return Chapters
      */
-    public function addFromChapter(\EGamebookBundle\Entity\Chapters $fromChapter)
+    public function addChild(\EGamebookBundle\Entity\Chapters $child)
     {
-        $this->fromChapters[] = $fromChapter;
+        $this->childs[] = $child;
 
         return $this;
     }
 
     /**
-     * Remove fromChapter
+     * Remove child
      *
-     * @param \EGamebookBundle\Entity\Chapters $fromChapter
+     * @param \EGamebookBundle\Entity\Chapters $child
      */
-    public function removeFromChapter(\EGamebookBundle\Entity\Chapters $fromChapter)
+    public function removeChild(\EGamebookBundle\Entity\Chapters $child)
     {
-        $this->fromChapters->removeElement($fromChapter);
+        $this->childs->removeElement($child);
     }
 
     /**
-     * Get fromChapters
+     * Get childs
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getFromChapters()
+    public function getChilds()
     {
-        return $this->fromChapters;
+        return $this->childs;
     }
 }

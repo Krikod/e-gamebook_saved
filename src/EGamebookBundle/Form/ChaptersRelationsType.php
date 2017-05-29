@@ -2,9 +2,10 @@
 
 namespace EGamebookBundle\Form;
 
+use EGamebookBundle\Repository\ChaptersRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,19 +17,23 @@ class ChaptersRelationsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
-//        ->add('number', CollectionType::class, array(
-//            'entry_type' => ChoiceType::class
-//            ))
-            ->add('toChapters', ChoiceType::class, // ou COLLECTIONTYPE !!!!!!
-                array('multiple' => true, 'placeholder' => false, 'expanded' => false))
-//            ->add('save', SubmitType::class, array('label' => 'Create Relation'))
-            ->getForm();
+            ->add('childs', EntityType::class, array(
+                'class' => 'EGamebookBundle\Entity\Chapters',
+                'query_builder' => function (ChaptersRepository $er) {
+                    return $er->getChapters();
+                },
+                'choice_label' => 'number',
+                'multiple' => true,
+                'expanded' => false,
+//                'placeholder' => 'Choose the Child chapter(s)',
+            ))
+
+            ->add('save', SubmitType::class, array(
+                'label' => 'Create Relation'));
     }
-//$chapter l' objet
-//                $chapterParent
-//         $chapter->addToChapter($chapterParent)
-//            $chapterParent->addfromChapter($chapter)
+
     /**
      * {@inheritdoc}
      */

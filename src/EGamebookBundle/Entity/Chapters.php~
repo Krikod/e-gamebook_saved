@@ -7,5 +7,5 @@ namespace EGamebookBundle\Entity;
  */
 class Chapters
 {
-    
+
 }

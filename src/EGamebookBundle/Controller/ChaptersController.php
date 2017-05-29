@@ -5,7 +5,6 @@ namespace EGamebookBundle\Controller;
 use EGamebookBundle\Entity\Chapters;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Chapter controller.
@@ -39,7 +38,6 @@ class ChaptersController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $chapter = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($chapter);
             $em->flush();
@@ -128,33 +126,28 @@ class ChaptersController extends Controller
      * Creates new relations between chapters.
      *
      */
-    public function newRelationsAction(Request $request, Chapters $chapter, $id)
+    public function newRelationsAction(Request $request, Chapters $chapter)
     {
-
-        $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $toChapters);
+        $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $chapter);
+        //dump($form->getData()); die();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $toChapters = $form->getData();
+
             $em = $this->getDoctrine()->getManager();
-            $toChapters = $em->getRepository('EGamebookBundle:Chapters')->findOneById($id);
+
+            foreach ($chapter->getChilds() as $child){
+                $child->addParent($chapter);
+            }
+
+            $em->persist($chapter);
+            $em->flush();
+
             return $this->redirectToRoute('chapters_index');
         }
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
             'form' => $form->createView(),
+            'chapter' => $chapter
         ));
     }
-//
-
-//
-
-//            boucle if ()
-
 }
-
-//$toChapters->setNumber();
-//        $fromChapters->setNumber();
-//        $em = $this->getDoctrine()->getManager();
-//        $em->persist($toChapters);
-//        $em->flush();
-//        return new Response('New child relation with Chapter ' . $toChapters->getNumber() . 'has been saved.');

@@ -10,4 +10,15 @@ namespace EGamebookBundle\Repository;
  */
 class ChaptersRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getChapters(){
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('c');
+//        $qb->select('c')
+//            ->where('chapter.id = :data.id')
+//            ->setParameter('data.id', FALSE );
+        return $qb;
+    }
 }
