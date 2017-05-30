@@ -78,7 +78,7 @@ class ChaptersController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('chapters_edit', array('id' => $chapter->getId()));
+            return $this->redirectToRoute('chapters_index', array('id' => $chapter->getId()));
         }
 
         return $this->render('@EGamebook/chapters/edit.html.twig', array(

@@ -18,7 +18,7 @@ class ChaptersImageType extends AbstractType
                 'data_class' => null))
 
             ->add('save', SubmitType::class, array(
-                'label' => 'Add image'));
+                'label' => 'Add media'));
 
     }
 
