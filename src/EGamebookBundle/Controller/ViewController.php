@@ -9,10 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ViewController extends Controller
 {
-    public function chapAction($id)
+    public function chapAction(Chapters $chapter, $number)
     {
+
         $em = $this->getDoctrine()->getManager();
-        $chapter = $em->getRepository('EGamebookBundle:Chapters')->findById($id);
+        $chapter = $em->getRepository('EGamebookBundle:Chapters')->findOneByNumber($number);
 
         return $this->render('@EGamebook/Default/index.html.twig', array('chapter' => $chapter));
     }

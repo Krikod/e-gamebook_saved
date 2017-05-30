@@ -22,10 +22,11 @@
                 <td>{{ chapter.media }}</td>
                 <td>{{ chapter.decision }}</td>
                 <td>{{ chapter.buttonText }}</td>
-                <td>"Child chapters"
-                <td>{% for child in chapter.childs %}
-                        {{ child }}
-                    {% endfor %}</td>
+                <td>
+                    {% for child in chapter.childs %}
+                        {{ child.number }} /
+                    {% endfor %}
+                </td>
                 <td>
                     <ul>
                         <li>
