@@ -129,7 +129,8 @@ class ChaptersController extends Controller
     public function newRelationsAction(Request $request, Chapters $chapter)
     {
         $form = $this->createForm('EGamebookBundle\Form\ChaptersRelationsType', $chapter);
-        //dump($form->getData()); die();
+//        dump($chapter); die();
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -141,6 +142,7 @@ class ChaptersController extends Controller
             }
 
             $em->persist($chapter);
+
             $em->flush();
 
             return $this->redirectToRoute('chapters_index');

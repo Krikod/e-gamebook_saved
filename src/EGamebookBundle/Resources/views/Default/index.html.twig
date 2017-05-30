@@ -1,1 +1,21 @@
-Hello World!
+{% extends '@EGamebook/layout.html.twig' %}
+
+{% block body %}
+
+      {{ chapter.content }}
+    {{ chapter.decision }}
+
+
+
+
+
+        <div class="collection">
+            {% for buttonText in chapter.childs %}
+                {#<a class="class="collection-item waves-effect waves-light btn">#}
+                {#{{ path('e_gamebook_story', { 'id': chapter.id } ) }}>#}
+            {#{{ 'buttonText' }}</a><br>#}
+                {{ buttonText }}
+            {% endfor %}
+        </div>
+
+{% endblock %}

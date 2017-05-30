@@ -5,3 +5,15 @@ e_gamebook_chapters:
 e_gamebook_homepage:
     path:     /
     defaults: { _controller: EGamebookBundle:Default:index }
+
+e_gamebook_story:
+    path:     /chap/{id}
+    defaults: { _controller: EGamebookBundle:View:chap }
+
+e_gamebook_intro:
+    path:     /intro
+    defaults: { _controller: EGamebookBundle:View:intro }
+
+e_gamebook_about:
+    path:     /about
+    defaults: { _controller: EGamebookBundle:View:about}

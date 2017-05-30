@@ -27,9 +27,7 @@ class ChaptersRelationsType extends AbstractType
                 'choice_label' => 'number',
                 'multiple' => true,
                 'expanded' => false,
-//                'placeholder' => 'Choose the Child chapter(s)',
             ))
-
             ->add('save', SubmitType::class, array(
                 'label' => 'Create Relation'));
     }

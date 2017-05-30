@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Chapters list</h1>
 
-    <table>
+    <table class="responsive-table">
         <thead>
             <tr>
                 <th>Number</th>
@@ -11,7 +11,7 @@
                 <th>Media</th>
                 <th>Decision</th>
                 <th>Button Text</th>
-                {#<th>Child Chapter(s)</th>#}
+                <th>Child Chapter(s)</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,10 @@
                 <td>{{ chapter.media }}</td>
                 <td>{{ chapter.decision }}</td>
                 <td>{{ chapter.buttonText }}</td>
-                {#<td><a href="{{ path('chapters_show', {'id': toChapters.chapter.id }) }}">{{ 'number': toChapter.number[] }}</a></td>#}
+                <td>"Child chapters"
+                <td>{% for child in chapter.childs %}
+                        {{ child }}
+                    {% endfor %}</td>
                 <td>
                     <ul>
                         <li>
