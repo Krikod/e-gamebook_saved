@@ -28,3 +28,7 @@ chapters_relations:
     defaults: { _controller: "EGamebookBundle:Chapters:newRelations" }
     methods: [GET, POST]
 
+chapters_add_image:
+    path:     /new_image/{id}
+    defaults: { _controller: "EGamebookBundle:Chapters:addImage" }
+    methods:  [GET, POST]
