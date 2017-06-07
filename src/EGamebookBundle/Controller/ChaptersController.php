@@ -160,8 +160,10 @@ class ChaptersController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $file = $chapter->getMedia();
+// dump($file);die();
             // Generate a unique name for the file before saving it
             $path = $this->getParameter('brochures_directory')."/".$file;
             if(file_exists($path))

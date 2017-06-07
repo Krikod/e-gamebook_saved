@@ -14,12 +14,8 @@ class ChaptersImageType extends AbstractType
     {
 
         $builder
-            ->add('media', FileType::class, array(
-                'data_class' => null))
-
-            ->add('save', SubmitType::class, array(
-                'label' => 'Add media'));
-
+            ->add('media', FileType::class, array('data_class' => null))
+            ->add('save', SubmitType::class, array('label' => 'Add media'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
