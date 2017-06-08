@@ -1,0 +1,33 @@
+EGamebookBundle\Entity\Book:
+    type: entity
+    table: null
+    repositoryClass: EGamebookBundle\Repository\BookRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        author:
+            type: string
+            length: 255
+        editor:
+            type: string
+            length: 255
+        year:
+            type: integer
+        isbn:
+            type: integer
+            nullable: true
+
+    lifecycleCallbacks: {  }
+
+
+    oneToMany:
+        chapters:
+            targetEntity: EGamebookBundle\Entity\Chapters
+            mappedBy: book

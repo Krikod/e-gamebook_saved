@@ -4,7 +4,7 @@ e_gamebook_chapters:
 
 e_gamebook_homepage:
     path:     /
-    defaults: { _controller: EGamebookBundle:Default:index }
+    defaults: { _controller: EGamebookBundle:Chapters:index }
 
 e_gamebook_story:
     path:     /chap/{number}

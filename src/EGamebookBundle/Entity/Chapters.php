@@ -39,6 +39,11 @@ class Chapters
     private $buttonText;
 
     /**
+     * @var \EGamebookBundle\Entity\Book
+     */
+    private $book;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $parents;
@@ -185,6 +190,30 @@ class Chapters
     public function getButtonText()
     {
         return $this->buttonText;
+    }
+
+    /**
+     * Set book
+     *
+     * @param \EGamebookBundle\Entity\Book $book
+     *
+     * @return Chapters
+     */
+    public function setBook(\EGamebookBundle\Entity\Book $book = null)
+    {
+        $this->book = $book;
+
+        return $this;
+    }
+
+    /**
+     * Get book
+     *
+     * @return \EGamebookBundle\Entity\Book
+     */
+    public function getBook()
+    {
+        return $this->book;
     }
 
     /**

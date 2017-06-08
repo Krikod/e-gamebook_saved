@@ -23,6 +23,11 @@ EGamebookBundle\Entity\Chapters:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    manyToOne:
+        book:
+            targetEntity: EGamebookBundle\Entity\Book
+            inversedBy: chapters
 #
 #
 #    manyToMany:
