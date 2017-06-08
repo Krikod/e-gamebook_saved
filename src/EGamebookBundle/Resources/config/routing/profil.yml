@@ -1,0 +1,3 @@
+profil_index:
+    path:     /
+    defaults: { _controller: "EGamebookBundle:Profil:index" }
