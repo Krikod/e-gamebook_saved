@@ -7,14 +7,7 @@ html, body {
 }
 
 nav {
-    background-color: #6d6c64;
     box-shadow: 0 0 0 0;
-}
-
-a.i.white.material-icons {
-    width: 56px;
-    margin: 0 70px;
-    color: darkgrey;
 }
 
 /* -- responsive embed styles -- */

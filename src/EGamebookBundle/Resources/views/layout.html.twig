@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
     {% block menu %}
-        <nav class="white">
-            <div class="nav-wrapper">
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="white material-icons"></i></a>
+        <nav>
+            <div class="nav-wrapper white">
+                <a href="#" data-activates="mobile-demo" class="grey-text text-darken-3 button-collapse">
+                    <i class="material-icons">menu</i></a>
                 <ul class="left hide-on-med-and-down">
                     <li><a class="grey-text" href="{{ path('e_gamebook_intro' )}}">Home</a></li>
-                    <li><a class="grey-text" href= "{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</aga></a></li>
+                    <li><a class="grey-text" href= "{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</a></li>
                     <li><a class="grey-text" href="{{ path('e_gamebook_about') }}">About</a></li>
                 </ul>
-                <ul class="side-nav blue-grey lighten-5" id="mobile-demo">
+                <ul class="side-nav grey lighten-5" id="mobile-demo">
                     <li><a class="grey-text" href="{{ path('e_gamebook_intro')}}">Home</a></li>
                     <li><a class="grey-text" href= "{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</a></li>
                     <li><a class="grey-text" href="{{ path('e_gamebook_about') }}">About</a></li>

@@ -4,8 +4,6 @@ namespace EGamebookBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use EGamebookBundle\Entity\Chapters;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class ViewController extends Controller
 {
