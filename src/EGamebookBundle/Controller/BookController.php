@@ -39,6 +39,8 @@ class BookController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $book->setUser($this->getUser());
             $em->persist($book);
             $em->flush();
 
