@@ -2,15 +2,15 @@
 
     {% block menu %}
         <nav class="">
-            <div class="nav-wrapper grey-text text-darken-4">
+            <div class="nav-wrapper grey text-darken-4">
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ path('e_gamebook_intro' )}}">Home</a></li>
                     <li><a href="{{ path('e_gamebook_story', { 'number': 1} ) }}">Start again</aga></a></li>
                     <li><a href="{{ path('e_gamebook_about') }}">About</a></li>
                 </ul>
-                <ul class="side-nav white" id="mobile-demo">
-                    <li><a href="{{ path('e_gamebook_intro')}}">Home</a></li>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a  href="{{ path('e_gamebook_intro')}}">Home</a></li>
                     <li><a href="{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</a></li>
                     <li><a href="{{ path('e_gamebook_about') }}">About</a></li>
                 </ul>

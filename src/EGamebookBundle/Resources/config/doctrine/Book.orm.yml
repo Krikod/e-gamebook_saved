@@ -31,3 +31,8 @@ EGamebookBundle\Entity\Book:
         chapters:
             targetEntity: EGamebookBundle\Entity\Chapters
             mappedBy: book
+
+    manyToOne:
+        user:
+            targetEntity: EGamebookBundle\Entity\User
+            inversedBy: books

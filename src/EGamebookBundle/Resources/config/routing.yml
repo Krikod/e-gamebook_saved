@@ -3,7 +3,7 @@ e_gamebook_chapters:
     prefix:   /chapters
 
 e_gamebook_homepage:
-    path:     /
+    path:     /index
     defaults: { _controller: EGamebookBundle:Chapters:index }
 
 e_gamebook_story:
@@ -11,7 +11,7 @@ e_gamebook_story:
     defaults: { _controller: EGamebookBundle:View:chap }
 
 e_gamebook_intro:
-    path:     /intro
+    path:     /
     defaults: { _controller: EGamebookBundle:View:intro }
 
 e_gamebook_about:

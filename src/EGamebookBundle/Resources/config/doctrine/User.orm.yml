@@ -6,7 +6,20 @@ EGamebookBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
-
+    fields:
+        firstname:
+            type: string
+            length: 255
+            nullable: true
+        lastname:
+            type: string
+            length: 255
+            nullable: true
 
     lifecycleCallbacks: {  }
+
+    oneToMany:
+        books:
+            targetEntity: EGamebookBundle\Entity\Book
+            mappedBy: user
 
