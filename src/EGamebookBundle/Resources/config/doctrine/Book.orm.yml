@@ -21,7 +21,8 @@ EGamebookBundle\Entity\Book:
         year:
             type: integer
         isbn:
-            type: integer
+            type: string
+            length: 255
             nullable: true
 
     lifecycleCallbacks: {  }

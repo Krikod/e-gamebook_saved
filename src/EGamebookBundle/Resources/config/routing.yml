@@ -3,7 +3,7 @@ e_gamebook_chapters:
     prefix:   /chapters
 
 e_gamebook_books:
-    resource: "@EGamebookBundle/Resources/config/routing/books.yml"
+    resource: "@EGamebookBundle/Resources/config/routing/book.yml"
     prefix:   /books
 
 e_gamebook_profil:
@@ -11,19 +11,7 @@ e_gamebook_profil:
     prefix:   /profil
 
 e_gamebook_homepage:
-    path:     /index
-    defaults: { _controller: EGamebookBundle:Chapters:index }
-
-e_gamebook_story:
-    path:     /chap/{number}
-    defaults: { _controller: EGamebookBundle:View:chap }
-
-e_gamebook_intro:
     path:     /
     defaults: { _controller: EGamebookBundle:View:intro }
-
-e_gamebook_about:
-    path:     /about
-    defaults: { _controller: EGamebookBundle:View:about}
 
 

@@ -15,17 +15,17 @@ class ViewController extends Controller
         $em = $this->getDoctrine()->getManager();
         $chapter = $em->getRepository('EGamebookBundle:Chapters')->findOneByNumber($number);
 
-        return $this->render('@EGamebook/Default/index.html.twig', array('chapter' => $chapter));
+        return $this->render('@EGamebook/user/index.html.twig', array('chapter' => $chapter));
     }
 
     public function introAction()
     {
-        return $this->render('@EGamebook/Default/intro.html.twig');
+        return $this->render('@EGamebook/index.html.twig');
     }
 
     public function aboutAction()
     {
-        return $this->render('@EGamebook/Default/about.html.twig');
+        return $this->render('@EGamebook/user/index.html.twig');
     }
 }
 
