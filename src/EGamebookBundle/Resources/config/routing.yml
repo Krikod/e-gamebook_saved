@@ -12,6 +12,10 @@ e_gamebook_profil:
 
 e_gamebook_homepage:
     path:     /
-    defaults: { _controller: EGamebookBundle:View:intro }
+    defaults: { _controller: EGamebookBundle:View:introBooks }
 
+e_gamebook_read:
+    path:     /{id}
+    defaults: { _controller: EGamebookBundle:View:pageBook }
+    methods:  GET
 

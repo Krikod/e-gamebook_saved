@@ -21,7 +21,8 @@ class BookController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $books = $em->getRepository('EGamebookBundle:Book')->findAll();
+        $books = $em->getRepository('EGamebookBundle:Book')->findByUser($this->getUser()->getId());
+
 
         return $this->render('@EGamebook/book/index.html.twig', array(
             'books' => $books,
