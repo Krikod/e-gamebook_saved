@@ -18,6 +18,7 @@ class BookController extends Controller
      */
     public function indexAction()
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $books = $em->getRepository('EGamebookBundle:Book')->findAll();
