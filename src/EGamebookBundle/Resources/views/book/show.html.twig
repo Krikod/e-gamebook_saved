@@ -1,14 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends '@EGamebook/layout.html.twig' %}
 
 {% block body %}
-    <h1>Book</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ book.id }}</td>
-            </tr>
+<div class="container">
+    <div class="row">
+    <div class="col s2">
+        <h1>Book</h1>
+        <table>
+            <tbody>
             <tr>
                 <th>Title</th>
                 <td>{{ book.title }}</td>
@@ -29,9 +27,56 @@
                 <th>Isbn</th>
                 <td>{{ book.isbn }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+    <div class="col s10">
+        <table class="responsive-table">
+            <thead>
+            <tr>
+                <th>Number</th>
+                <th>Content</th>
+                <th>Media</th>
+                <th>Decision</th>
+                <th>Button Text</th>
+                <th>Child Chapter(s)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for chapter in chapters %}
+                <tr>
+                    <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a></td>
+                    <td>{{ chapter.content }}</td>
+                    <td>{{ chapter.media }}</td>
+                    <td>{{ chapter.decision }}</td>
+                    <td>{{ chapter.buttonText }}</td>
+                    <td>
+                        {% for child in chapter.childs %}
+                            {{ child.number }} /
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('chapters_add_image', { 'id': chapter.id }) }}">edit image</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('chapters_relations', { 'id': chapter.id }) }}">new relations</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
+    </div>
     <ul>
         <li>
             <a href="{{ path('book_index') }}">Back to the list</a>
@@ -41,8 +86,13 @@
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        <li>
+            <a href="{{ path('chapters_new', { 'id': book.id }) }}">Make a Chapter</a>
+        </li>
     </ul>
+</div>
+</div>
 {% endblock %}

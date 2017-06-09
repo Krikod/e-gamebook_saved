@@ -59,9 +59,14 @@ class BookController extends Controller
      */
     public function showAction(Book $book)
     {
+
+        $em = $this->getDoctrine()->getManager();
         $deleteForm = $this->createDeleteForm($book);
+        $chapters = $em->getRepository('EGamebookBundle:Chapters')->findByBook($book);
+
 
         return $this->render('@EGamebook/book/show.html.twig', array(
+            'chapters' => $chapters,
             'book' => $book,
             'delete_form' => $deleteForm->createView(),
         ));

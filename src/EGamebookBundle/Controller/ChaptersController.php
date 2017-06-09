@@ -2,6 +2,7 @@
 
 namespace EGamebookBundle\Controller;
 
+use EGamebookBundle\Entity\Book;
 use EGamebookBundle\Entity\Chapters;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,7 @@ class ChaptersController extends Controller
      * Creates a new chapter entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Book $book)
     {
         $chapter = new Chapters();
         $form = $this->createForm('EGamebookBundle\Form\ChaptersType', $chapter);
@@ -39,10 +40,12 @@ class ChaptersController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $chapter->setBook($book);
             $em->persist($chapter);
             $em->flush();
 
-            return $this->redirectToRoute('chapters_show', array('id' => $chapter->getId()));
+            return $this->redirectToRoute('book_show', array('id' => $book->getId()));
         }
 
         return $this->render('@EGamebook/chapters/new.html.twig', array(
@@ -145,7 +148,7 @@ class ChaptersController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('chapters_index');
+            return $this->redirectToRoute('book_index');
         }
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
             'form' => $form->createView(),

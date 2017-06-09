@@ -9,7 +9,7 @@ chapters_show:
     methods:  GET
 
 chapters_new:
-    path:     /new
+    path:     /new/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:new" }
     methods:  [GET, POST]
 
