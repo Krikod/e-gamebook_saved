@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Creation of Child Relations from Chapter {{ chapter.number }}</h1>
-
+    <h1 class="center">Creation of Child Relations from Chapter {{ chapter.number }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="card-panel">
     {{ form_start(form) }}
 
 
@@ -36,7 +38,9 @@
             <a href="{{ path('chapters_edit', { id: chapter.id }) }}">edit chapter</a>
         </li>
     </ul>
-
+</div>
+</div>
+</div>
 {% endblock %}
 
 

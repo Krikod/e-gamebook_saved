@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapters list</h1>
-
+    <h1 class="center">Chapters list</h1>
+<div class="container">
+    <div class="row">
+        <div class="card-panel">
     <table class="responsive-table">
         <thead>
             <tr>
@@ -50,4 +52,7 @@
             <a href="{{ path('chapters_new') }}">Create a new chapter</a>
         </li>
     </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

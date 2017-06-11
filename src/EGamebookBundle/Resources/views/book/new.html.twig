@@ -1,8 +1,9 @@
 {% extends '@EGamebook/layout.html.twig' %}
 {% block body %}
-    <h1>Book creation</h1>
+    <h1 class="center">Book creation</h1>
 <div class="container">
     <div class="row">
+        <div class="card-panel">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
@@ -13,6 +14,8 @@
             <a href="{{ path('book_index') }}">Back to the list</a>
 
         </li>
-    </ul></div>
+    </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Chapter edit</h1>
-
+    <h1 class="center">Chapter edit</h1>
+<div class="container">
+    <div class="row">
+        <div class="card-panel">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input type="submit" value="Edit" />
@@ -18,4 +20,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}
