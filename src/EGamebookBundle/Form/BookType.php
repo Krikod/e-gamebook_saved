@@ -18,8 +18,7 @@ class BookType extends AbstractType
             ->add('editor')
             ->add('resume')
             ->add('year')
-            ->add('isbn')
-            ->add('user');
+            ->add('isbn');
     }
     
     /**

@@ -58,9 +58,6 @@
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('chapters_add_image', { 'id': chapter.id }) }}">edit image</a>
-                            </li>
-                            <li>
                                 <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show</a>
                             </li>
                             <li>
@@ -79,7 +76,7 @@
     </div>
     <ul>
         <li>
-            <a href="{{ path('book_index') }}">Back to the list</a>
+            {#<a href="{{ path('book_index') }}">Back to the list</a>#}
         </li>
         <li>
             <a href="{{ path('book_edit', { 'id': book.id }) }}">Edit</a>

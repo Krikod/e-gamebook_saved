@@ -4,27 +4,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="grid-example col s12 m6">
+        <div class="card-panel col s12">
                  <span class="flow-text">
                     {{ chapter.content }}
                      <img src="{{asset('bundles/platform/img/'~chapter.media) }}" class="responsive-img">
                      {{ chapter.decision }}
 
                  </span>
-        </div>
+
+
+
+    <div class="collection">
+        {% for chap in chapter.childs %}
+
+
+            <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"
+               class="collection-item waves-effect waves-light btn">
+
+                {{ chap.buttonText }}</a><br>
+
+        {% endfor %}
+    </div>
     </div>
 </div>
-<div class="collection">
-    {% for chap in chapter.childs %}
 
-
-        <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"
-           class="collection-item waves-effect waves-light btn">
-
-            {{ chap.buttonText }}</a><br>
-
-    {% endfor %}
-</div>
 
 
 {% endblock %}
