@@ -10,16 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ViewController extends Controller
 {
-    public function chapAction(Chapters $chapter, $number)
-    {
 
-        $em = $this->getDoctrine()->getManager();
-        $chapter = $em->getRepository('EGamebookBundle:Chapters')->findOneByNumber($number);
-
-        return $this->render('@EGamebook/user/index.html.twig', array('chapter' => $chapter));
-    }
-
-    public function introBooksAction()
+    public function listBooksAction()
     {
         $em = $this->getDoctrine()->getManager();
         $books = $em->getRepository('EGamebookBundle:Book')->findAll();
@@ -27,12 +19,27 @@ class ViewController extends Controller
             'books' => $books,
         ));
     }
-    public function pageBookAction(Book $book)
+    public function introBookAction($id)
     {
 
+        $em = $this->getDoctrine()->getManager();
+        $book = $em->getRepository('EGamebookBundle:Book')->findOneById($id);
 
-        return $this->render('@EGamebook/nonUsers/pageBook.html.twig', array(
-            'book' => $book,
+        return $this->render('@EGamebook/nonUsers/introBook.html.twig', array(
+            'book' => $book));
+    }
+
+
+    public function readBookAction($number, $id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $chapter = $em->getRepository('EGamebookBundle:Chapters')->getChaptersNumber($number, $id);
+        $chaptera = $chapter[0];
+
+        return $this->render('@EGamebook/nonUsers/readBook.html.twig', array(
+            'chapter' => $chaptera,
+            'idB' => $id
         ));
     }
     public function aboutAction()

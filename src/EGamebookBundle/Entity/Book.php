@@ -243,4 +243,33 @@ class Book
     {
         return $this->user;
     }
+    /**
+     * @var string
+     */
+    private $resume;
+
+
+    /**
+     * Set resume
+     *
+     * @param string $resume
+     *
+     * @return Book
+     */
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    /**
+     * Get resume
+     *
+     * @return string
+     */
+    public function getResume()
+    {
+        return $this->resume;
+    }
 }

@@ -214,4 +214,33 @@ class Book
     {
         return $this->chapters;
     }
+    /**
+     * @var \EGamebookBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \EGamebookBundle\Entity\User $user
+     *
+     * @return Book
+     */
+    public function setUser(\EGamebookBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \EGamebookBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

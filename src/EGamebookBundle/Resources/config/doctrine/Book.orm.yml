@@ -15,6 +15,9 @@ EGamebookBundle\Entity\Book:
         author:
             type: string
             length: 255
+        resume:
+            type: text
+            length: 255
         editor:
             type: string
             length: 255
@@ -32,8 +35,10 @@ EGamebookBundle\Entity\Book:
         chapters:
             targetEntity: EGamebookBundle\Entity\Chapters
             mappedBy: book
+            cascade: ["persist"]
 
     manyToOne:
         user:
             targetEntity: EGamebookBundle\Entity\User
             inversedBy: books
+            cascade: ["persist"]

@@ -10,12 +10,17 @@ e_gamebook_profil:
     resource: "@EGamebookBundle/Resources/config/routing/profil.yml"
     prefix:   /profil
 
-e_gamebook_homepage:
+e_gamebook_list:
     path:     /
-    defaults: { _controller: EGamebookBundle:View:introBooks }
+    defaults: { _controller: EGamebookBundle:View:listBooks }
+
+e_gamebook_intro:
+    path:     /intro/{id}
+    defaults: { _controller: EGamebookBundle:View:introBook }
+    methods:  GET
 
 e_gamebook_read:
-    path:     /{id}
-    defaults: { _controller: EGamebookBundle:View:pageBook }
+    path:     /read/{number}/{id}
+    defaults: { _controller: EGamebookBundle:View:readBook }
     methods:  GET
 

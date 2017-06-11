@@ -28,6 +28,7 @@ EGamebookBundle\Entity\Chapters:
         book:
             targetEntity: EGamebookBundle\Entity\Book
             inversedBy: chapters
+            cascade: ["persist"]
 #
 #
 #    manyToMany:

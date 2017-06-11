@@ -22,4 +22,5 @@ EGamebookBundle\Entity\User:
         books:
             targetEntity: EGamebookBundle\Entity\Book
             mappedBy: user
+            cascade: ["persist"]
 

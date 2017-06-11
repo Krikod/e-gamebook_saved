@@ -21,4 +21,12 @@ class ChaptersRepository extends \Doctrine\ORM\EntityRepository
                     ->setParameter('book', $idB);
         return $qb;
     }
+    public function getChaptersNumber($number, $idB){
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.number = :number')
+            ->setParameter('number', $number)
+            ->andwhere('c.book = :id')
+            ->setParameter('id', $idB);
+        return $qb->getQuery()->getResult();
+    }
 }
