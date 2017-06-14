@@ -18,11 +18,13 @@ class ChaptersRelationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $idCurrentChapter = $options['data']->getId();
+        $idCurrentBook = $options['data']->getBook();
+
         $builder
             ->add('childs', EntityType::class, array(
                 'class' => 'EGamebookBundle\Entity\Chapters',
-                'query_builder' => function (ChaptersRepository $cr) use ($idCurrentChapter) {
-                    return $cr->getChapters($idCurrentChapter);
+                'query_builder' => function (ChaptersRepository $cr) use ($idCurrentChapter, $idCurrentBook) {
+                    return $cr->getChapters($idCurrentChapter,$idCurrentBook);
                 },
                 'choice_label' => 'number',
                 'multiple' => true,
