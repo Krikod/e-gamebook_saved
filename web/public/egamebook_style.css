@@ -6,8 +6,13 @@ html, body {
     z-index: 1;
 }
 
+.col.s12 > .btn {
+    width: 100%;
+}
+
 nav {
     box-shadow: 0 0 0 0;
+
 }
 
 /* -- responsive embed styles -- */
