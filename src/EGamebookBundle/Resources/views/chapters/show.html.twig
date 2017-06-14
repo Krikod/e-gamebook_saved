@@ -31,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('chapters_index') }}">Back to the list</a>
+            <a href="{{ path('book_show', { 'id': book.id }) }}">Back to the list</a>
         </li>
         <li>
             <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">Edit</a>

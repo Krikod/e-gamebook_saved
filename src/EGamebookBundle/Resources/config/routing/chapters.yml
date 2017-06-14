@@ -9,7 +9,7 @@ chapters_show:
     methods:  GET
 
 chapters_new:
-    path:     /new
+    path:     /new/{id}
     defaults: { _controller: "EGamebookBundle:Chapters:new" }
     methods:  [GET, POST]
 
@@ -28,7 +28,3 @@ chapters_relations:
     defaults: { _controller: "EGamebookBundle:Chapters:newRelations" }
     methods: [GET, POST]
 
-chapters_add_image:
-    path:     /new_image/{id}
-    defaults: { _controller: "EGamebookBundle:Chapters:addImage" }
-    methods:  [GET, POST]

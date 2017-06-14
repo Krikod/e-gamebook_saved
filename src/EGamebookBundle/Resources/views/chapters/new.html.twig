@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<<<<<<< HEAD
     {#<h1>Chapter creation</h1>#}
+=======
+    <h1>Chapter creation for {{ chapter.book }}</h1>
+>>>>>>> a79e34e79d20bedfde918c2ef7b7151d673b4e65
 
     {#{{ form_start(form) }}#}
     {#{{ form_widget(form) }}#}
@@ -19,6 +23,7 @@
 {% endblock %}
 
 
+<<<<<<< HEAD
 
 
 
@@ -63,3 +68,16 @@
     {#{{ form_end(form) }}#}
 
 {#{% endblock %}#}
+=======
+    <button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter vv
+        <i class="material-icons right">send</i>
+    </button>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('book_show', { 'id': book.id }) }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+>>>>>>> a79e34e79d20bedfde918c2ef7b7151d673b4e65
