@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@EGamebook/layout.html.twig' %}
 
 {% block body %}
     <h1 class="center">Creation of Child Relations from Chapter {{ chapter.number }}</h1>
@@ -7,23 +7,8 @@
         <div class="card-panel">
     {{ form_start(form) }}
 
-
-
-    {#<div class="row card-panel">#}
-        {#<div class="input-field col s6">#}
-            {#<select name="view" class="browser-default" autofocus>#}
-                {#{% for chapters in toChapters %}#}
-                    {#<option name="chapter[]" value="number">{{ chapters.number }}</option>#}
-                {#{% endfor %}#}
-            {#</select>#}
-        {#</div>#}
-
-    {#</div>#}
-    {#<input type="submit">#}
     {{ form_widget(form) }}
-    {#<button class="btn waves-effect waves-light" type="submit" name="action">Create relation#}
-        {#<i class="material-icons right">send</i>#}
-    {#</button>#}
+
 
     {{ form_end(form) }}
 

@@ -185,7 +185,7 @@ class ChaptersController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('book_index');
+            return $this->redirectToRoute('chapters_index');
         }
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
             'book' => $book,
