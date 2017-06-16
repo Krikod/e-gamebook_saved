@@ -1,83 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<<<<<<< HEAD
-    {#<h1>Chapter creation</h1>#}
-=======
+
     <h1>Chapter creation for {{ chapter.book }}</h1>
->>>>>>> a79e34e79d20bedfde918c2ef7b7151d673b4e65
 
-    {#{{ form_start(form) }}#}
-    {#{{ form_widget(form) }}#}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
 
-    {#<button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter#}
-        {#<i class="material-icons right">send</i>#}
-    {#</button>#}
-    {#{{ form_end(form) }}#}
-
-    {#<ul>#}
-        {#<li>#}
-            {#<a href="{{ path('chapters_index') }}">Back to the list</a>#}
-        {#</li>#}
-    {#</ul>#}
-{% endblock %}
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-{#{% block body %}#}
-
-    {#<h1>Ajout d'un personnage</h1>#}
-
-    {#{{ form_start(form) }}#}
-
-    {#<div>#}
-        {#{{ form_label(form.nom) }}#}
-        {#{{ form_widget(form.nom) }}#}
-        {#{{ form_errors(form.nom) }}#}
-    {#</div>#}
-    {#<div>#}
-        {#{{ form_label(form.prenom) }}#}
-        {#{{ form_widget(form.prenom) }}#}
-        {#{{ form_errors(form.prenom) }}#}
-    {#</div>#}
-    {#<div>#}
-        {#{{ form_label(form.sexe) }}#}
-        {#{{ form_widget(form.sexe) }}#}
-        {#{{ form_errors(form.sexe) }}#}
-    {#</div>#}
-    {#<div>#}
-        {#{{ form_label(form.bio) }}#}
-        {#{{ form_widget(form.bio) }}#}
-        {#{{ form_errors(form.bio) }}#}
-    {#</div>#}
-    {#<div>#}
-        {#{{ form_label(form.royaume) }}#}
-        {#{{ form_widget(form.royaume) }}#}
-        {#{{ form_errors(form.royaume) }}#}
-    {#</div>#}
-    {#<div>#}
-        {#{{ form_widget(form.submit) }}#}
-    {#</div>#}
-
-    {#{{ form_end(form) }}#}
-
-{#{% endblock %}#}
-=======
-    <button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter vv
+    <button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter
         <i class="material-icons right">send</i>
     </button>
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('book_show', { 'id': book.id }) }}">Back to the list</a>
+            <a href="{{ path('chapters_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
->>>>>>> a79e34e79d20bedfde918c2ef7b7151d673b4e65

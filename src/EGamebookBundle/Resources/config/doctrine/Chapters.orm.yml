@@ -29,27 +29,11 @@ EGamebookBundle\Entity\Chapters:
             targetEntity: EGamebookBundle\Entity\Book
             inversedBy: chapters
             cascade: ["persist"]
-#
-#
-#    manyToMany:
-#        targetEntity: EGamebookBundle\Entity\Chapters
-#        mappedBy: toChapters
-#
-#        joinTable:
-#            name: chapt_relations
-#            joinColumns:
-#                name: chapt_id
-#                        referencedColumnName: id
-#            inverseJoinColumns:
-#                name: chapt_relations_id
-#                        referencedColumnName: id
-#inversedBy: fromChapters
 
     manyToMany:
         parents:
             targetEntity: EGamebookBundle\Entity\Chapters
             mappedBy: childs
-
 
         childs:
             targetEntity: EGamebookBundle\Entity\Chapters
