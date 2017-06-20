@@ -2,26 +2,26 @@
 
 {% block body %}
 
-
+<div id="premiere_page">
         <div class="container">
             <div class="row">
                 <div class="card-panel col s12">
 
 
-                     <h1 class="center"> {{ book.title }}</h1>
-                    <p> {{ book.author }}</p>
-                     <p>{{ book.editor }}</p>
-                     <p>{{ book.year }}</p>
-                     <p>{{ book.resume }}</p>
+                     {#<h1 class="center"> {{ book.title }}</h1>#}
+                    {#<p>{{ book.author }}</p>#}
+                     {#<p>{{ book.editor }}</p>#}
+                     {#<p>{{ book.year }}</p>#}
+                     {#<p>{{ book.resume }}</p>#}
 
 
 
 
                      <a class="waves-effect waves-light btn" href= "{{ path('e_gamebook_read', { 'number': 1 , 'id' : book.id} ) }}">
-            Start the Story</a>
+            Start Adventure</a>
 
                 </div>
             </div>
         </div>
-
+    </div>
 {% endblock %}

@@ -11,7 +11,7 @@ e_gamebook_profil:
     prefix:   /profil
 
 e_gamebook_list:
-    path:     /
+    path:     /list
     defaults: { _controller: EGamebookBundle:View:listBooks }
 
 e_gamebook_intro:
@@ -23,4 +23,8 @@ e_gamebook_read:
     path:     /read/{number}/{id}
     defaults: { _controller: EGamebookBundle:View:readBook }
     methods:  GET
+
+e_gamebook_firsPage:
+    path:     /
+    defaults: { _controller: EGamebookBundle:View:firstPage }
 

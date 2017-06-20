@@ -46,5 +46,11 @@ class ViewController extends Controller
     {
         return $this->render('@EGamebook/user/index.html.twig');
     }
+    public function firstPageAction()
+    {
+
+
+        return $this->render('@EGamebook/nonUsers/firstPage.html.twig');
+    }
 }
 

@@ -1,6 +1,26 @@
 {% extends '@EGamebook/layout.html.twig' %}
 
 {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="carousel carousel-slider center" data-indicators="true">
+                <div class="carousel-fixed-item center">
+
+                </div>
+                {% for book in books %}
+                <div class="carousel-item blue white-text carousel_modif" href="#one!">
+                    <h2>{{ book.title }}</h2>
+                    <p class="white-text">{{ book.author }}</p>
+                    <a href="{{ path('e_gamebook_intro', { 'id': book.id }) }}"> <input class="btn" type="submit" value="Read"></a>
+                </div>
+               {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
     <h1 class="center">Books list</h1>
     <table>
         <thead>
@@ -33,4 +53,10 @@
             <a href="{{ path('fos_user_registration_register') }}">Create your own book</a>
         </li>
     </ul>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script>
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+</script>
 {% endblock %}
