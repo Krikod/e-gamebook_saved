@@ -4,19 +4,16 @@
     <h1 class="center">Chapter creation for {{ book.title }}</h1>
 
     {{ form_start(form) }}
-
-
-
     {{ form_widget(form) }}
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter vv
+    <button class="btn waves-effect waves-light" type="submit" name="action">Create Chapter
         <i class="material-icons right">send</i>
     </button>
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('book_show', { 'id': book.id }) }}">Back to the list</a>
+            <a href="{{ path('chapters_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}
