@@ -53,17 +53,13 @@
         </nav>
     {% endblock %}
 
-            {% block body %}
-
-            {% endblock %}
-
-
+{% block body %}
+{% endblock %}
 
 {% block javascripts %}
 
     {{ parent() }}
     <script>
-        $(".button-collapse").sideNav();
+        $( document ).ready(function(){ $(".button-collapse").sideNav(); })
     </script>
-
 {% endblock %}
