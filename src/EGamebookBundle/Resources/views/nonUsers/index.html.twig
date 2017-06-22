@@ -21,38 +21,38 @@
 
         </div>
     </div>
-    <h1 class="center">Books list</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Editor</th>
-            <th>Year</th>
-            <th>Isbn</th>
-            <th>Action</th>
+    {#<h1 class="center">Books list</h1>#}
+    {#<table>#}
+        {#<thead>#}
+        {#<tr>#}
+            {#<th>Title</th>#}
+            {#<th>Author</th>#}
+            {#<th>Editor</th>#}
+            {#<th>Year</th>#}
+            {#<th>Isbn</th>#}
+            {#<th>Action</th>#}
 
-        </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.editor }}</td>
-                <td>{{ book.year }}</td>
-                <td>{{ book.isbn }}</td>
-                <td><a href="{{ path('e_gamebook_intro', { 'id': book.id }) }}">Read this book</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for book in books %}#}
+            {#<tr>#}
+                {#<td>{{ book.title }}</td>#}
+                {#<td>{{ book.author }}</td>#}
+                {#<td>{{ book.editor }}</td>#}
+                {#<td>{{ book.year }}</td>#}
+                {#<td>{{ book.isbn }}</td>#}
+                {#<td><a href="{{ path('e_gamebook_intro', { 'id': book.id }) }}">Read this book</a></td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
 
-    <ul>
-        <li>
-            <a href="{{ path('fos_user_registration_register') }}">Create your own book</a>
-        </li>
-    </ul>
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('fos_user_registration_register') }}">Create your own book</a>#}
+        {#</li>#}
+    {#</ul>#}
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
