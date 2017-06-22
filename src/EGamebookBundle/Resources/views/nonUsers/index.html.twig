@@ -1,38 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container indexPage">
 
-            <a href="{{ path('e_gamebook_intro') }}"><img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}"></a>
+            <a href="{{ path('e_gamebook_intro') }}"><img class="responsive-img"
+                                                          src="{{ asset('bundles/platform/img/topCover.png') }}"></a>
+        <h5><strong>Recommended for Steph</strong></h5>
 
-
-        <h6>Recommended for Steph</h6>
-
-            <div class="carousel carousel-slider center" data-indicators="true">
+            <div class="carousel carousel-slider center responsive" data-indicators="true">
                 {#<div class="carousel-fixed-item center">#}
                     {#<a class="btn waves-effect white grey-text darken-text-2">button</a>#}
                 {#</div>#}
-                <div class="carousel-item white white-text" href="#one!">
+                <div class="carousel-item white white-text responsive-img" href="#one!">
                     <img  src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}">
                     <h2>First Panel</h2>
                     <p class="white-text">This is your first panel</p>
                 </div>
-                <div class="carousel-item white white-text" href="#two!">
+                <div class="carousel-item white white-text responsive-img" href="#two!">
                     <img src="{{ asset('bundles/platform/img/Screenshot_1.jpg') }}">
                     <h2>Second Panel</h2>
                     <p class="white-text">This is your second panel</p>
                 </div>
-                <div class="carousel-item white white-text" href="#three!">
+                <div class="carousel-item white white-text responsive-img" href="#three!">
                     <img src="{{ asset('bundles/platform/img/FiftyShadesUncovered-Poster.jpg') }}">
                     <h2>Third Panel</h2>
                     <p class="white-text">This is your third panel</p>
                 </div>
-                <div class="carousel-item white white-text" href="#four!">
+                <div class="carousel-item white white-text responsive-img" href="#four!">
                     <img src="{{ asset('bundles/platform/img/Carroussel Photo 4.jpg') }}">
                     <h2>Fourth Panel</h2>
                     <p class="white-text">This is your fourth panel</p>
                 </div>
-                <div class="carousel-item white white-text" href="#four!">
+                <div class="carousel-item white white-text responsive-img" href="#four!">
                     <img src="{{ asset('bundles/platform/img/Carroussel Photo 5.jpg') }}">
                     <h2>Fourth Panel</h2>
                     <p class="white-text">This is your fourth panel</p>
