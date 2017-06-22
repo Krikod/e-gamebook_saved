@@ -15,12 +15,12 @@ e_gamebook_list:
     defaults: { _controller: EGamebookBundle:View:listBooks }
 
 e_gamebook_intro:
-    path:     /intro/{id}
+    path:     /intro/
     defaults: { _controller: EGamebookBundle:View:introBook }
     methods:  GET
 
 e_gamebook_read:
-    path:     /read/{number}/{id}
+    path:     /read/
     defaults: { _controller: EGamebookBundle:View:readBook }
     methods:  GET
 

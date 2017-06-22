@@ -1,26 +1,46 @@
-{% extends '@EGamebook/layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="carousel carousel-slider center" data-indicators="true">
-                <div class="carousel-fixed-item center">
 
+            <a href="{{ path('e_gamebook_intro') }}"><img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}"></a>
+
+
+        <h6>Recommended for Steph</h6>
+
+            <div class="carousel carousel-slider center" data-indicators="true">
+                {#<div class="carousel-fixed-item center">#}
+                    {#<a class="btn waves-effect white grey-text darken-text-2">button</a>#}
+                {#</div>#}
+                <div class="carousel-item white white-text" href="#one!">
+                    <img  src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}">
+                    <h2>First Panel</h2>
+                    <p class="white-text">This is your first panel</p>
                 </div>
-                {% for book in books %}
-                <div class="carousel-item blue white-text carousel_modif" href="#one!">
-                    <h2>{{ book.title }}</h2>
-                    <p class="white-text">{{ book.author }}</p>
-                    <a href="{{ path('e_gamebook_intro', { 'id': book.id }) }}"> <input class="btn" type="submit" value="Read"></a>
+                <div class="carousel-item white white-text" href="#two!">
+                    <img src="{{ asset('bundles/platform/img/Screenshot_1.jpg') }}">
+                    <h2>Second Panel</h2>
+                    <p class="white-text">This is your second panel</p>
                 </div>
-               {% endfor %}
+                <div class="carousel-item white white-text" href="#three!">
+                    <img src="{{ asset('bundles/platform/img/FiftyShadesUncovered-Poster.jpg') }}">
+                    <h2>Third Panel</h2>
+                    <p class="white-text">This is your third panel</p>
+                </div>
+                <div class="carousel-item white white-text" href="#four!">
+                    <img src="{{ asset('bundles/platform/img/Carroussel Photo 4.jpg') }}">
+                    <h2>Fourth Panel</h2>
+                    <p class="white-text">This is your fourth panel</p>
+                </div>
+                <div class="carousel-item white white-text" href="#four!">
+                    <img src="{{ asset('bundles/platform/img/Carroussel Photo 5.jpg') }}">
+                    <h2>Fourth Panel</h2>
+                    <p class="white-text">This is your fourth panel</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
 
-        </div>
     </div>
+
     {#<h1 class="center">Books list</h1>#}
     {#<table>#}
         {#<thead>#}
@@ -53,10 +73,16 @@
             {#<a href="{{ path('fos_user_registration_register') }}">Create your own book</a>#}
         {#</li>#}
     {#</ul>#}
+
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-<script>
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
-</script>
+    {{ parent() }}
+    <script>
+
+        $(document).ready(function(){
+            $('.carousel').carousel();
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
+        });
+
+    </script>
 {% endblock %}
