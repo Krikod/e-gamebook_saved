@@ -1,12 +1,10 @@
-{% extends '@EGamebook/layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
-<div id="premiere_page">
-        <div class="container">
-            <div class="row">
-                <div class="card-panel col s12">
 
+
+                    <a href="{{ path('e_gamebook_list') }}"><img class="responsive-img" src="{{ asset('bundles/platform/img/PlayBook UX3.jpg') }}"><a/>
 
                      {#<h1 class="center"> {{ book.title }}</h1>#}
                     {#<p>{{ book.author }}</p>#}
@@ -17,11 +15,5 @@
 
 
 
-                     <a class="waves-effect waves-light btn" href= "{{ path('e_gamebook_read', { 'number': 1 , 'id' : book.id} ) }}">
-            Start Adventure</a>
 
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}

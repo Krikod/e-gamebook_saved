@@ -1,12 +1,13 @@
-{% extends '@EGamebook/layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <a href="{{ path('e_gamebook_intro', {'id': 1}) }}"><img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}"></a>
-        </div>
 
-        <div class="row">
+            <a href="{{ path('e_gamebook_intro') }}"><img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}"></a>
+
+
+        <h6>Recommended for Steph</h6>
+
             <div class="carousel carousel-slider center" data-indicators="true">
                 {#<div class="carousel-fixed-item center">#}
                     {#<a class="btn waves-effect white grey-text darken-text-2">button</a>#}
@@ -37,7 +38,7 @@
                     <p class="white-text">This is your fourth panel</p>
                 </div>
             </div>
-        </div>
+
     </div>
 
 {% endblock %}

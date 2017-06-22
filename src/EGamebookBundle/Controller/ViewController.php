@@ -19,14 +19,11 @@ class ViewController extends Controller
             'books' => $books,
         ));
     }
-    public function introBookAction($id)
+    public function introBookAction()
     {
 
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository('EGamebookBundle:Book')->findOneById($id);
 
-        return $this->render('@EGamebook/nonUsers/introBook.html.twig', array(
-            'book' => $book));
+        return $this->render('@EGamebook/nonUsers/introBook.html.twig');
     }
 
 
