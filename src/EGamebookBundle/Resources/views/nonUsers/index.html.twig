@@ -1,44 +1,81 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container indexPage">
+<div class="container">
+    <div class="row">
+        <div class="row-full">
+    <a href="{{ path('e_gamebook_intro') }}"><img class="photohaut responsive-img"
+                                        src="{{ asset('bundles/platform/img/topCover.png') }}"></a>
+        </div>
+    </div>
 
-            <a href="{{ path('e_gamebook_intro') }}"><img class="responsive-img"
-                                                          src="{{ asset('bundles/platform/img/topCover.png') }}"></a>
-        <h5><strong>Recommended for Steph</strong></h5>
 
-            <div class="carousel carousel-slider center responsive" data-indicators="true">
+    <div class="row">
+        <h4 class="reco center-align"><strong>Recommended for Steph</strong></h4>
+        <div class="carousel carousel-slider center-align">
+            <a class="carousel-item" href="{{ path('e_gamebook_intro') }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}">
+                <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_0.png') }}">
+            </a>
+            <a class="carousel-item" href="{{ path('e_gamebook_intro') }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot_1.jpg') }}">
+                <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_1.png') }}">
+            </a>
+            <a class="carousel-item" href="{{ path('e_gamebook_intro') }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/FiftyShadesUncovered-Poster.jpg') }}">
+                <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_0.png') }}">
+            </a>
+            <a class="carousel-item" href="{{ path('e_gamebook_intro') }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/Carroussel Photo 4.jpg') }}">
+                <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_1.png') }}">
+            </a>
+            <a class="carousel-item" href="{{ path('e_gamebook_intro') }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/Carroussel Photo 5.jpg') }}">
+                <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_0.png') }}">
+            </a>
+        </div>
+    </div>
+</div>
+
+        {#<div class="carousel carousel-slider center" data-indicators="true">#}
                 {#<div class="carousel-fixed-item center">#}
                     {#<a class="btn waves-effect white grey-text darken-text-2">button</a>#}
                 {#</div>#}
-                <div class="carousel-item white white-text responsive-img" href="#one!">
-                    <img  src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}">
-                    <h2>First Panel</h2>
-                    <p class="white-text">This is your first panel</p>
-                </div>
-                <div class="carousel-item white white-text responsive-img" href="#two!">
-                    <img src="{{ asset('bundles/platform/img/Screenshot_1.jpg') }}">
-                    <h2>Second Panel</h2>
-                    <p class="white-text">This is your second panel</p>
-                </div>
-                <div class="carousel-item white white-text responsive-img" href="#three!">
-                    <img src="{{ asset('bundles/platform/img/FiftyShadesUncovered-Poster.jpg') }}">
-                    <h2>Third Panel</h2>
-                    <p class="white-text">This is your third panel</p>
-                </div>
-                <div class="carousel-item white white-text responsive-img" href="#four!">
-                    <img src="{{ asset('bundles/platform/img/Carroussel Photo 4.jpg') }}">
-                    <h2>Fourth Panel</h2>
-                    <p class="white-text">This is your fourth panel</p>
-                </div>
-                <div class="carousel-item white white-text responsive-img" href="#four!">
-                    <img src="{{ asset('bundles/platform/img/Carroussel Photo 5.jpg') }}">
-                    <h2>Fourth Panel</h2>
-                    <p class="white-text">This is your fourth panel</p>
-                </div>
-            </div>
+                {#<div class="carousel-item white white-text responsive-img" href="#one!">#}
+                    {#<img  src="{{ asset('bundles/platform/img/Screenshot_5.jpg') }}">#}
+                    {#<h2>First Panel</h2>#}
+                    {#<p class="white-text">This is your first panel</p>#}
+                {#</div>#}
+                {#<div class="carousel-item white white-text responsive-img" href="#two!">#}
+                    {#<img src="{{ asset('bundles/platform/img/Screenshot_1.jpg') }}">#}
+                    {#<h2>Second Panel</h2>#}
+                    {#<p class="white-text">This is your second panel</p>#}
+                {#</div>#}
+                {#<div class="carousel-item white white-text responsive-img" href="#three!">#}
+                    {#<img src="{{ asset('bundles/platform/img/FiftyShadesUncovered-Poster.jpg') }}">#}
+                    {#<h2>Third Panel</h2>#}
+                    {#<p class="white-text">This is your third panel</p>#}
+                {#</div>#}
+                {#<div class="carousel-item white white-text responsive-img" href="#four!">#}
+                    {#<img src="{{ asset('bundles/platform/img/Carroussel Photo 4.jpg') }}">#}
+                    {#<h2>Fourth Panel</h2>#}
+                    {#<p class="white-text">This is your fourth panel</p>#}
+                {#</div>#}
+                {#<div class="carousel-item white white-text responsive-img" href="#four!">#}
+                    {#<img src="{{ asset('bundles/platform/img/Carroussel Photo 5.jpg') }}">#}
+                    {#<h2>Fourth Panel</h2>#}
+                    {#<p class="white-text">This is your fourth panel</p>#}
+                {#</div>#}
+            {#</div>#}
 
-    </div>
+
+
+
+
+
+
+
+
 
     {#<h1 class="center">Books list</h1>#}
     {#<table>#}
@@ -80,8 +117,15 @@
 
         $(document).ready(function(){
             $('.carousel').carousel();
+            $('.slider').slider();
             $('.carousel.carousel-slider').carousel({fullWidth: true});
+
         });
 
+
+
     </script>
+
+
+
 {% endblock %}

@@ -1,24 +1,34 @@
-#premiere_page{
+#premiere_page
+{
     background-color: #0000F0;
 }
 
-.carousel .carousel-item
-{
-    background-size:100% auto;
-    background-repeat: no-repeat;
-    max-width : 100%;
-
-
-    background-color: transparent;
-    margin: 0;
-    height: 200px;
-
+/*Page Caroussel*/
+.row-full{
+    width: 107%;
+    position: relative;
+    margin-left: -55vw;
+    left: 55%;
+    text-align: center;
 }
-/*.indexPage .carousel .carousel-item img*/
-/*{*/
-    /*height: auto;*/
-    /*width: 100px%;*/
-    /*background-position: center;*/
-    /*background-size:100% auto;*/
-    /*background-repeat: no-repeat;*/
-/*}*/
+
+.col .carousel-slider, .carousel-item
+{
+
+    height: auto !important;
+    max-width: 300px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.star
+{
+    max-width: 100px !important;
+    height: auto;
+}
+
+/*Bouton de choix*/
+.theme-color {
+    background-color: white;
+    border: solid deeppink;
+}
