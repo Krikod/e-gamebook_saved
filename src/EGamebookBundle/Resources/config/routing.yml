@@ -20,7 +20,7 @@ e_gamebook_intro:
     methods:  GET
 
 e_gamebook_read:
-    path:     /read/
+    path:     /read/{number}/{id}
     defaults: { _controller: EGamebookBundle:View:readBook }
     methods:  GET
 

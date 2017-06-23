@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="row-full">
-            <a href="{{ path('e_gamebook_read') }}">
+            <a href="{{ path('e_gamebook_read', {'number': book.number , 'id': book.id}) }}">
                 <img class="responsive-img" src="{{ asset('bundles/platform/img/PlayBook UX3.png') }}">
             <a/>
         </div>
