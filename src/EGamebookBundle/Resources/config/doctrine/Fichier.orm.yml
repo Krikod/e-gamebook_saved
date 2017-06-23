@@ -1,0 +1,31 @@
+EGamebookBundle\Entity\Fichier:
+    type: entity
+    table: null
+    repositoryClass: EGamebookBundle\Repository\FichierRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        src:
+            type: string
+            length: 255
+        alt:
+            type: string
+            length: 255
+
+    lifecycleCallbacks:
+
+        #for create
+        prePersist: [ preUpload ]
+        postPersist: [ upload ]
+
+        #for edit
+        preUpdate: [ preUpload ]
+        postUpdate: [ upload ]
+
+        #for remove
+        preRemove: [ preRemove ]
+        postRemove: [ remove ]
