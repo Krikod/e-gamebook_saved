@@ -84,7 +84,14 @@
         opacity: 0;
     }
 }
-
+.content_M
+{
+    color: #7030A0;
+}
+.content_W
+{
+color:  #FF0000 ;
+}
 .button:active
 {
     background-color: #d1d3d6 !important;

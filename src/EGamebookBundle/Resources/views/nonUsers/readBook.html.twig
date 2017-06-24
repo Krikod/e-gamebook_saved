@@ -6,13 +6,21 @@
     <div class="row">
         <div class="card-panel col s12">
                  <span class="flow-text">
-                    {{ chapter.content }}
 
+                     {% if app.user.gender == "M" %}
+                         <div class="content_M">
+                              {{ chapter.content }}
+                         </div>
+                     {% else %}
+                         <div class="content_W">
+                   {{ chapter.content }}
+                         </div>
+                        {% endif %}
                      {{ chapter.decision }}
 
                      {% if chapter.fichier is null %}
                          <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
-                {% else %}
+                        {% else %}
                          <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ chapter.fichier.src ) }}">
                      {% endif %}
                  </span>
