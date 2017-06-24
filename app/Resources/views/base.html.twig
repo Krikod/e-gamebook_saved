@@ -5,11 +5,12 @@
         <title>{% block title %}e-gamebook{% endblock %}</title>
         {% block stylesheets %}
             <!--Import Google Icon Font-->
-            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="'text/css">
+            <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <!--Import materialize.css-->
             <!-- Compiled and minified CSS -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-            <link type="text/css" rel="stylesheet" href="{{ asset('public/egamebook_style.css') }}"  media="screen,projection"/>
+            {#<link type="text/css" rel="stylesheet" href="{{ asset('public/egamebook_style.css') }}"  media="screen,projection"/>#}
             <link type="text/css" rel="stylesheet" href="{{ asset('bundles/egamebook/css/global.css') }}"/>
         {% endblock %}
         <!--Website optimized for mobile-->
@@ -31,9 +32,11 @@
                     $('iframe').wrap("<div class='embed-responsive embed-responsive-16by9'/>").addClass('embed-responsive-item');
                 });
             </script>
+
             <!-- Compiled and minified JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
             {#<script type="text/javascript" src="{{ asset('materialize/js/materialize.min.js') }}"></script>#}
+            <script src="{{ 'web/public/e-gamebook.js' }}"></script>
         {% endblock %}
     </body>
 </html>
