@@ -34,6 +34,10 @@ EGamebookBundle\Entity\Chapters:
         parents:
             targetEntity: EGamebookBundle\Entity\Chapters
             mappedBy: childs
+    oneToOne:
+        fichier:
+            targetEntity: EGamebookBundle\Entity\Fichier
+            cascade: ['all']
 
         childs:
             targetEntity: EGamebookBundle\Entity\Chapters

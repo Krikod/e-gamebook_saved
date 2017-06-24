@@ -15,8 +15,17 @@ EGamebookBundle\Entity\User:
             type: string
             length: 255
             nullable: true
+        gender:
+            type: string
+            length: 10
+            nullable: true
 
     lifecycleCallbacks: {  }
+
+    oneToOne:
+        fichier:
+            targetEntity: EGamebookBundle\Entity\Fichier
+            cascade: ['all']
 
     oneToMany:
         books:

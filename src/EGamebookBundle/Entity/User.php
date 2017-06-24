@@ -112,4 +112,62 @@ class User extends BaseUser
     {
         return $this->books;
     }
+    /**
+     * @var string
+     */
+    private $gender;
+
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     *
+     * @return User
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+    /**
+     * @var \EGamebookBundle\Entity\Fichier
+     */
+    private $fichier;
+
+
+    /**
+     * Set fichier
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichier
+     *
+     * @return User
+     */
+    public function setFichier(\EGamebookBundle\Entity\Fichier $fichier = null)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \EGamebookBundle\Entity\Fichier
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
 }
