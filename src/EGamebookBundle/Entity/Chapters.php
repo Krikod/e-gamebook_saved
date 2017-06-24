@@ -8,6 +8,7 @@ namespace EGamebookBundle\Entity;
 class Chapters
 {
 
+
     /**
      * @var integer
      */
@@ -26,17 +27,22 @@ class Chapters
     /**
      * @var string
      */
-    private $media;
-
-    /**
-     * @var string
-     */
     private $decision;
 
     /**
      * @var string
      */
     private $buttonText;
+
+    /**
+     * @var \EGamebookBundle\Entity\Fichier
+     */
+    private $fichier;
+
+    /**
+     * @var \EGamebookBundle\Entity\Chapters
+     */
+    private $childs;
 
     /**
      * @var \EGamebookBundle\Entity\Book
@@ -49,17 +55,11 @@ class Chapters
     private $parents;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $childs;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->childs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -121,30 +121,6 @@ class Chapters
     }
 
     /**
-     * Set media
-     *
-     * @param string $media
-     *
-     * @return Chapters
-     */
-    public function setMedia($media)
-    {
-        $this->media = $media;
-
-        return $this;
-    }
-
-    /**
-     * Get media
-     *
-     * @return string
-     */
-    public function getMedia()
-    {
-        return $this->media;
-    }
-
-    /**
      * Set decision
      *
      * @param string $decision
@@ -190,6 +166,54 @@ class Chapters
     public function getButtonText()
     {
         return $this->buttonText;
+    }
+
+    /**
+     * Set fichier
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichier
+     *
+     * @return Chapters
+     */
+    public function setFichier(\EGamebookBundle\Entity\Fichier $fichier = null)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \EGamebookBundle\Entity\Fichier
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
+
+    /**
+     * Set childs
+     *
+     * @param \EGamebookBundle\Entity\Chapters $childs
+     *
+     * @return Chapters
+     */
+    public function setChilds(\EGamebookBundle\Entity\Chapters $childs = null)
+    {
+        $this->childs = $childs;
+
+        return $this;
+    }
+
+    /**
+     * Get childs
+     *
+     * @return \EGamebookBundle\Entity\Chapters
+     */
+    public function getChilds()
+    {
+        return $this->childs;
     }
 
     /**
@@ -248,82 +272,5 @@ class Chapters
     public function getParents()
     {
         return $this->parents;
-    }
-
-    /**
-     * Add child
-     *
-     * @param \EGamebookBundle\Entity\Chapters $child
-     *
-     * @return Chapters
-     */
-    public function addChild(\EGamebookBundle\Entity\Chapters $child)
-    {
-        $this->childs[] = $child;
-
-        return $this;
-    }
-
-    /**
-     * Remove child
-     *
-     * @param \EGamebookBundle\Entity\Chapters $child
-     */
-    public function removeChild(\EGamebookBundle\Entity\Chapters $child)
-    {
-        $this->childs->removeElement($child);
-    }
-
-    /**
-     * Get childs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getChilds()
-    {
-        return $this->childs;
-    }
-    /**
-     * @var \EGamebookBundle\Entity\Fichier
-     */
-    private $fichier;
-
-
-    /**
-     * Set fichier
-     *
-     * @param \EGamebookBundle\Entity\Fichier $fichier
-     *
-     * @return Chapters
-     */
-    public function setFichier(\EGamebookBundle\Entity\Fichier $fichier = null)
-    {
-        $this->fichier = $fichier;
-
-        return $this;
-    }
-
-    /**
-     * Get fichier
-     *
-     * @return \EGamebookBundle\Entity\Fichier
-     */
-    public function getFichier()
-    {
-        return $this->fichier;
-    }
-
-    /**
-     * Set childs
-     *
-     * @param \EGamebookBundle\Entity\Chapters $childs
-     *
-     * @return Chapters
-     */
-    public function setChilds(\EGamebookBundle\Entity\Chapters $childs = null)
-    {
-        $this->childs = $childs;
-
-        return $this;
     }
 }

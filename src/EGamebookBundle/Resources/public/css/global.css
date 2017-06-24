@@ -3,6 +3,10 @@
     background-color: #0000F0;
 }
 
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 /*Page Caroussel*/
 .row-full{
     width: 107%;
@@ -11,6 +15,90 @@
     left: 55%;
     text-align: center;
 }
+
+.wrap {
+    margin-top: 20px;
+    text-align: center;
+}
+.button
+{
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    background-color: white;
+    border: solid #F607BB 2px;
+    border-radius: 3px;
+    padding: 3px;
+    color: #F607BB !important;
+    font-weight: bold !important;
+    font-size: 1.9em;
+    width: 98%;
+    height: auto;
+    word-wrap: break-word;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1;
+    display: block;
+    margin: auto;
+}
+.ripple {
+    position: absolute;
+    background: rgba(0,0,0,.25);
+    border-radius: 100%;
+    transform: scale(0.2);
+    opacity:0;
+    pointer-events: none;
+    -webkit-animation: ripple .75s ease-out;
+    -moz-animation: ripple .75s ease-out;
+    animation: ripple .75s ease-out;
+}
+
+@-webkit-keyframes ripple {
+    from {
+        opacity:1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes ripple {
+    from {
+        opacity:1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    from {
+        opacity:1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.button:active
+{
+    background-color: #d1d3d6 !important;
+}
+.button:hover
+{
+    box-shadow: 1px 3px 7px rgba(0,0,0,0.3);
+}
+
+.button:visited
+{
+    background-color: white;
+}
+
 
 .col .carousel-slider, .carousel-item
 {
@@ -27,8 +115,3 @@
     height: auto;
 }
 
-/*Bouton de choix*/
-.theme-color {
-    background-color: white;
-    border: solid deeppink;
-}

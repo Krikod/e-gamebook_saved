@@ -7,22 +7,25 @@
         <div class="card-panel col s12">
                  <span class="flow-text">
                     {{ chapter.content }}
-                     <img src="{{asset('bundles/platform/img/'~chapter.media) }}" class="responsive-img">
+
                      {{ chapter.decision }}
 
+                     {% if chapter.fichier is null %}
+                         <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
+                {% else %}
+                         <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ chapter.fichier.src ) }}">
+                     {% endif %}
                  </span>
 
-    <div class="collection">
-        {% for chap in chapter.childs %}
-
-
-            <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"
-               class="collection-item waves-effect waves-light btn theme-color">
-<span class="truncate white pink-text text-darken-2">{{ chap.buttonText }}</span>
-            </a><br>
-        {% endfor %}
+            <div class="collection">
+                {% for chap in chapter.childs %}
+                    <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"
+                       class="collection-item waves-effect waves-light btn theme-color">
+                        <span class="truncate white pink-text text-darken-2">{{ chap.buttonText }}</span>
+                    </a><br>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 
-{% endblock %}
+    {% endblock %}

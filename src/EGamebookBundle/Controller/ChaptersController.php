@@ -44,23 +44,7 @@ class ChaptersController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $file = $chapter->getMedia();
-            // Generate a unique name for the file before saving it
-            $path = $this->getParameter('brochures_directory')."/".$file;
-            if(file_exists($path))
-            {
-                unlink($path);
-            }
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-
-            // Move the file to the directory where brochures are stored
-            $file->move($this->getParameter('brochures_directory'), $fileName);
-
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-
-            $chapter->setMedia($fileName);
 
             $chapter->setBook($book);
             $em->persist($chapter);

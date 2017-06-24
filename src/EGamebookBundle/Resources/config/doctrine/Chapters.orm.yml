@@ -13,10 +13,6 @@ EGamebookBundle\Entity\Chapters:
             type: integer
         content:
             type: text
-        media:
-            type: string
-            length: 255
-            nullable: true
         decision:
             type: text
         buttonText:

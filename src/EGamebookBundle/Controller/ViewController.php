@@ -15,17 +15,20 @@ class ViewController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $bookBestSeller =$em->getRepository('EGamebookBundle:Book')->getLastEntity();
+
         $books = $em->getRepository('EGamebookBundle:Book')->findAll();
         return $this->render('@EGamebook/nonUsers/index.html.twig', array(
             'books' => $books,
             'book' => $bookBestSeller
         ));
     }
-    public function introBookAction()
+    public function introBookAction(Book $book)
     {
 
 
-        return $this->render('@EGamebook/nonUsers/introBook.html.twig');
+        return $this->render('@EGamebook/nonUsers/introBook.html.twig', array(
+            'book' => $book,
+        ));
     }
 
 

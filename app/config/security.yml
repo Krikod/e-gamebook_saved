@@ -16,7 +16,7 @@ security:
             security: false
 
         main:
-            pattern: ^/login
+            pattern: ^/
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
