@@ -7,14 +7,14 @@
                 <ul class="left hide-on-med-and-down">
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="{{ path('profil_index') }}">My profil</a></li>
-                    <li><a href="{{ path('book_index') }}">My books</a></li>
-                    <li><a href="{{ path('book_new') }}">Create a new book</a></li>
+                        <li><a href="{{ path('profil_index') }}">My profil</a></li>
+                        <li><a href="{{ path('book_index') }}">My books</a></li>
+                        <li><a href="{{ path('book_new') }}">Create a new book</a></li>
 
 
                         <li><a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                        </a></li>
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a></li>
                         <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </li>
                     {% else %}
                         <li><a href="{{ path('book_new') }}">Create a new book</a></li>
@@ -45,21 +45,21 @@
                     {#<li><a href="{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</a></li>#}
                     {#<li><a href="{{ path('e_gamebook_about') }}">About</a></li>#}
                 </ul>
+                <ul>
+                    <li>Playbook</li>
+                </ul>
+
             </div>
         </nav>
     {% endblock %}
 
-            {% block body %}
-
-            {% endblock %}
-
-
+{% block body %}
+{% endblock %}
 
 {% block javascripts %}
 
     {{ parent() }}
     <script>
-        $(".button-collapse").sideNav();
+        $( document ).ready(function(){ $(".button-collapse").sideNav(); })
     </script>
-
 {% endblock %}

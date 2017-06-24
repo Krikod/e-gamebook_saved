@@ -1,27 +1,27 @@
-{% extends '@EGamebook/layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
-
-        <div class="container">
-            <div class="row">
-                <div class="card-panel col s12">
-
-
-                     <h1 class="center"> {{ book.title }}</h1>
-                    <p> {{ book.author }}</p>
-                     <p>{{ book.editor }}</p>
-                     <p>{{ book.year }}</p>
-                     <p>{{ book.resume }}</p>
-
-
-
-
-                     <a class="waves-effect waves-light btn" href= "{{ path('e_gamebook_read', { 'number': 1 , 'id' : book.id} ) }}">
-            Start the Story</a>
-
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="row-full">
+            <a href="{{ path('e_gamebook_read', {'number': book.number , 'id': book.id}) }}">
+                <img class="responsive-img" src="{{ asset('bundles/platform/img/PlayBook UX3.png') }}">
+            <a/>
         </div>
+    </div>
+</div>
+
+
+
+                     {#<h1 class="center"> {{ book.title }}</h1>#}
+                    {#<p>{{ book.author }}</p>#}
+                     {#<p>{{ book.editor }}</p>#}
+                     {#<p>{{ book.year }}</p>#}
+                     {#<p>{{ book.resume }}</p>#}
+
+
+
+
 
 {% endblock %}

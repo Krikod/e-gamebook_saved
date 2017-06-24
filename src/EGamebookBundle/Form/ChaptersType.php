@@ -22,7 +22,9 @@ class ChaptersType extends AbstractType
         $builder->add('number', IntegerType::class)
             ->add('content', TextareaType::class)
             ->add('media', FileType::class, array(
-                'data_class' => null)) // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
+                'data_class' => null,
+                'required' => false,
+            )) // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
             ->add('decision', TextareaType::class)
             ->add('buttonText', TextType::class)
 

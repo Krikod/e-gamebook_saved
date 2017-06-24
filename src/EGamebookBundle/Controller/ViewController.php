@@ -21,14 +21,11 @@ class ViewController extends Controller
             'book' => $bookBestSeller
         ));
     }
-    public function introBookAction($id)
+    public function introBookAction()
     {
 
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository('EGamebookBundle:Book')->findOneById($id);
 
-        return $this->render('@EGamebook/nonUsers/introBook.html.twig', array(
-            'book' => $book));
+        return $this->render('@EGamebook/nonUsers/introBook.html.twig');
     }
 
 
@@ -48,6 +45,12 @@ class ViewController extends Controller
     public function aboutAction()
     {
         return $this->render('@EGamebook/user/index.html.twig');
+    }
+    public function firstPageAction()
+    {
+
+
+        return $this->render('@EGamebook/nonUsers/firstPage.html.twig');
     }
 }
 
