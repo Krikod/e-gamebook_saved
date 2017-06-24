@@ -37,6 +37,7 @@ class ViewController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $chapter = $em->getRepository('EGamebookBundle:Chapters')->getChaptersNumber($number, $id);
+//        dump($chapter);die();
         $chaptera = $chapter[0];
 
         return $this->render('@EGamebook/nonUsers/readBook.html.twig', array(
