@@ -2,30 +2,30 @@
 
 {% block body %}
     <h1 class="center">Creation of Child Relations from Chapter {{ chapter.number }}</h1>
-<div class="container">
-    <div class="row">
-        <div class="card-panel">
-    {{ form_start(form) }}
+    <div class="container">
+        <div class="row">
+            <div class="card-panel">
+                {{ form_start(form) }}
 
-    {{ form_widget(form) }}
+                {{ form_widget(form) }}
 
 
-    {{ form_end(form) }}
+                {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('book_show', {id:book.id}) }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('chapters_show', { id: chapter.id }) }}">show chapter</a>
-        </li>
-        <li>
-            <a href="{{ path('chapters_edit', { id: chapter.id }) }}">edit chapter</a>
-        </li>
-    </ul>
-</div>
-</div>
-</div>
+                <ul>
+                    <li>
+                        <a href="{{ path('book_show', {id:book.id}) }}">Back to the list</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('chapters_show', { id: chapter.id }) }}">show chapter</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('chapters_edit', { id: chapter.id }) }}">edit chapter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 

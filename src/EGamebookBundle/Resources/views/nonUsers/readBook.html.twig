@@ -19,10 +19,11 @@
 
             <div class="collection">
                 {% for chap in chapter.childs %}
-                    <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"
-                       class="collection-item waves-effect waves-light btn theme-color">
-                        <span class="truncate white pink-text text-darken-2">{{ chap.buttonText }}</span>
-                    </a><br>
+                    <div class="wrap">
+                        <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"  class="button">
+                        <span>{{ chap.buttonText }}</span></a><br>
+                    </div>
+
                 {% endfor %}
             </div>
         </div>

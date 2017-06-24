@@ -91,23 +91,7 @@ class ChaptersController extends Controller
         $editForm->handleRequest($request);
         $book = $chapter->getBook();
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $file = $chapter->getMedia();
-            // Generate a unique name for the file before saving it
-            $path = $this->getParameter('brochures_directory')."/".$file;
-            if(file_exists($path))
-            {
-                unlink($path);
-            }
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-
-            // Move the file to the directory where brochures are stored
-            $file->move($this->getParameter('brochures_directory'), $fileName);
-
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-
-            $chapter->setMedia($fileName);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('chapters_show', array('id' => $chapter->getId()));
@@ -173,6 +157,7 @@ class ChaptersController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
             $em = $this->getDoctrine()->getManager();
 
             foreach ($chapter->getChilds() as $child){
@@ -183,7 +168,7 @@ class ChaptersController extends Controller
 
             $em->flush();
 
-            return $this->redirectToRoute('chapters_index');
+            return $this->redirectToRoute('book_index');
         }
         return $this->render('@EGamebook/chapters/new_relations.html.twig', array(
             'book' => $book,

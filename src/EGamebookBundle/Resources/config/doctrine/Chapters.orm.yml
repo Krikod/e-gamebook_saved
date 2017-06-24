@@ -26,14 +26,17 @@ EGamebookBundle\Entity\Chapters:
             inversedBy: chapters
             cascade: ["persist"]
 
-    manyToMany:
-        parents:
-            targetEntity: EGamebookBundle\Entity\Chapters
-            mappedBy: childs
     oneToOne:
         fichier:
             targetEntity: EGamebookBundle\Entity\Fichier
             cascade: ['all']
+
+
+    manyToMany:
+        parents:
+            targetEntity: EGamebookBundle\Entity\Chapters
+            mappedBy: childs
+
 
         childs:
             targetEntity: EGamebookBundle\Entity\Chapters

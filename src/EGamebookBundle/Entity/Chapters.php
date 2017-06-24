@@ -40,7 +40,7 @@ class Chapters
     private $fichier;
 
     /**
-     * @var \EGamebookBundle\Entity\Chapters
+     * @var \Doctrine\Common\Collections\Collection
      */
     private $childs;
 
@@ -60,6 +60,7 @@ class Chapters
     public function __construct()
     {
         $this->parents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->childs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -193,23 +194,30 @@ class Chapters
     }
 
     /**
-     * Set childs
+     * Add child
      *
-     * @param \EGamebookBundle\Entity\Chapters $childs
+     * @param \EGamebookBundle\Entity\Chapters $child
      *
      * @return Chapters
      */
-    public function setChilds(\EGamebookBundle\Entity\Chapters $childs = null)
+    public function addChild(\EGamebookBundle\Entity\Chapters $child)
     {
-        $this->childs = $childs;
-
+        $this->childs[] = $child;
         return $this;
     }
-
+    /**
+     * Remove child
+     *
+     * @param \EGamebookBundle\Entity\Chapters $child
+     */
+    public function removeChild(\EGamebookBundle\Entity\Chapters $child)
+    {
+        $this->childs->removeElement($child);
+    }
     /**
      * Get childs
      *
-     * @return \EGamebookBundle\Entity\Chapters
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChilds()
     {
