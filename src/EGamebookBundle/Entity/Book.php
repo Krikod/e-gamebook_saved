@@ -272,4 +272,33 @@ class Book
     {
         return $this->resume;
     }
+    /**
+     * @var \EGamebookBundle\Entity\Fichier
+     */
+    private $fichier;
+
+
+    /**
+     * Set fichier
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichier
+     *
+     * @return Book
+     */
+    public function setFichier(\EGamebookBundle\Entity\Fichier $fichier = null)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \EGamebookBundle\Entity\Fichier
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
 }

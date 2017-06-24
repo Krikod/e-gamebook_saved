@@ -1,36 +1,44 @@
 {% extends '@EGamebook/layout.html.twig' %}
 
+
 {% block body %}
-    <h1 class="center">Books list</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Editor</th>
-            <th>Year</th>
-            <th>Isbn</th>
-            <th>Action</th>
+    <div class="container">
+        <div class="row">
+            <div class="row-full">
+                <a href="{{ path('e_gamebook_intro', {'id': book.id }) }}">
+                    {% if book.fichier is null %}
+                        <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
+                    {% else %}
+                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier.src ) }}">
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <h4 class="reco center-align"><strong>Recommended for Steph</strong></h4>
 
-        </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.editor }}</td>
-                <td>{{ book.year }}</td>
-                <td>{{ book.isbn }}</td>
-                <td><a href="{{ path('e_gamebook_intro', { 'id': book.id }) }}">Read this book</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('fos_user_registration_register') }}">Create your own book</a>
-        </li>
-    </ul>
+            <div class="carousel carousel-slider center-align">
+                {% for bookcar in books %}
+                    <a class="carousel-item" href="{{ path('e_gamebook_intro', {'id':bookcar.id}) }}">
+                        {% if bookcar.fichier is null %}
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png' ) }}">
+                        {% else %}
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ bookcar.fichier.src ) }}">
+                        {% endif %}
+                        <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_1.png') }}">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel();
+            $('.slider').slider();
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
+        });
+    </script>
 {% endblock %}

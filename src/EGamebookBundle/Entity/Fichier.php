@@ -26,12 +26,12 @@ class Fichier
     {
         $this->file = $file;
 
-        if ($this->photo != null){
+        if ($this->src != null){
             // On stock le nom de l'image à supprimer
-            $this->tempName = $this->photo;
+            $this->tempName = $this->src;
 
             // On réinitialise les champs de notre objet
-            $this->photo = null;
+            $this->src = null;
             $this->alt= null;
         }
     }
@@ -55,7 +55,7 @@ class Fichier
             return;
         }
 
-        $this->photo = uniqid() . '.' . $this->file->guessExtension();
+        $this->src = uniqid() . '.' . $this->file->guessExtension();
 
         $alt= $this->file->getClientOriginalName();
         $ext = $this->file->guessExtension();
@@ -82,7 +82,7 @@ class Fichier
             }
         }
 
-        $this->file->move($this->getUploadDir(), $this->photo);
+        $this->file->move($this->getUploadDir(), $this->src);
 
 
     }
@@ -100,7 +100,7 @@ class Fichier
      */
     public function remove()
     {
-        $fileToRemove = $this->getUploadDir() . $this->photo;
+        $fileToRemove = $this->getUploadDir() . $this->src;
         if (file_exists($fileToRemove))
         {
             unlink($fileToRemove);
@@ -126,7 +126,7 @@ class Fichier
     /**
      * @var string
      */
-    private $photo;
+    private $src;
 
     /**
      * @var string
@@ -142,30 +142,6 @@ class Fichier
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set photo
-     *
-     * @param string $photo
-     *
-     * @return Fichier
-     */
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
-     * Get photo
-     *
-     * @return string
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
     }
 
     /**
@@ -190,5 +166,31 @@ class Fichier
     public function getAlt()
     {
         return $this->alt;
+    }
+    
+
+
+    /**
+     * Set src
+     *
+     * @param string $src
+     *
+     * @return Fichier
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * Get src
+     *
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
     }
 }

@@ -42,3 +42,9 @@ EGamebookBundle\Entity\Book:
             targetEntity: EGamebookBundle\Entity\User
             inversedBy: books
             cascade: ["persist"]
+
+
+    oneToOne:
+        fichier:
+            targetEntity: EGamebookBundle\Entity\Fichier
+            cascade: ['all']
