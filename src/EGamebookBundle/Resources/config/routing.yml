@@ -15,7 +15,7 @@ e_gamebook_list:
     defaults: { _controller: EGamebookBundle:View:listBooks }
 
 e_gamebook_intro:
-    path:     /intro/
+    path:     /intro
     defaults: { _controller: EGamebookBundle:View:introBook }
     methods:  GET
 
