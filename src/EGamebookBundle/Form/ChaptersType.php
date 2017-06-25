@@ -3,6 +3,7 @@
 namespace EGamebookBundle\Form;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -20,7 +21,12 @@ class ChaptersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('number', IntegerType::class)
-            ->add('content', TextareaType::class)
+            ->add('content', FroalaEditorType::class, array(
+                "language" => "fr",
+    "toolbarInline" => true,
+    "tableColors" => [ "#FFFFFF", "#FF0000" ],
+    "saveParams" => [ "id" => "myEditorField" ]
+))
            // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
             ->add('decision', TextareaType::class)
             ->add('buttonText', TextType::class)

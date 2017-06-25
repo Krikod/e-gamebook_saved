@@ -45,7 +45,10 @@
             {% for chapter in chapters %}
                 <tr>
                     <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a></td>
-                    <td>{{ chapter.content }}</td>
+                    <td>
+
+                            {{  froala_display(chapter.content) }}
+                        </td>
                     <td>{{ chapter.decision }}</td>
                     <td>{{ chapter.buttonText }}</td>
                     <td>
