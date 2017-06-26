@@ -43,7 +43,6 @@ EGamebookBundle\Entity\Book:
             inversedBy: books
             cascade: ["persist"]
 
-
     oneToOne:
         fichier:
             targetEntity: EGamebookBundle\Entity\Fichier

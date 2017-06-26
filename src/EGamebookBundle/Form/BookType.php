@@ -19,7 +19,9 @@ class BookType extends AbstractType
             ->add('resume')
             ->add('year')
             ->add('isbn')
-            ->add('fichier', FichierType::class );
+            ->add('fichier', FichierType::class, array(
+                'required' => false))
+            ->getForm();
     }
     
     /**

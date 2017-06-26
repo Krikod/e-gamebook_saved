@@ -7,6 +7,20 @@
     font-family: 'Roboto', sans-serif !important;
 }
 
+.flow-text
+{
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.rouge
+{
+    color: #FF0000;
+}
+.violet
+{
+    color: #7030A0;
+}
+
 /*Page Caroussel*/
 .row-full{
     width: 107%;
@@ -16,10 +30,10 @@
     text-align: center;
 }
 
-.wrap {
-    margin-top: 20px;
-    text-align: center;
-}
+/*.wrap {*/
+    /*margin-top: 20px;*/
+    /*text-align: center;*/
+/*}*/
 .button
 {
     -webkit-transition: 0.3s;
@@ -30,10 +44,10 @@
     background-color: white;
     border: solid #F607BB 2px;
     border-radius: 3px;
-    padding: 3px;
+    padding: 14px;
     color: #F607BB !important;
-    font-weight: bold !important;
-    font-size: 1.9em;
+    /*font-weight: bold !important;*/
+    font-size: 1.5em;
     width: 98%;
     height: auto;
     word-wrap: break-word;
@@ -41,7 +55,8 @@
     vertical-align: middle;
     line-height: 1;
     display: block;
-    margin: auto;
+    margin: 13px;
+
 }
 .ripple {
     position: absolute;

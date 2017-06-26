@@ -112,10 +112,6 @@ class Fichier
         return __DIR__ . '/../../../web/bundles/platform/img/';
     }
 
-
-
-
-
 // GENERATED CODE
 
     /**
@@ -145,32 +141,6 @@ class Fichier
     }
 
     /**
-     * Set alt
-     *
-     * @param string $alt
-     *
-     * @return Fichier
-     */
-    public function setAlt($alt)
-    {
-        $this->alt = $alt;
-
-        return $this;
-    }
-
-    /**
-     * Get alt
-     *
-     * @return string
-     */
-    public function getAlt()
-    {
-        return $this->alt;
-    }
-    
-
-
-    /**
      * Set src
      *
      * @param string $src
@@ -192,5 +162,29 @@ class Fichier
     public function getSrc()
     {
         return $this->src;
+    }
+
+    /**
+     * Set alt
+     *
+     * @param string $alt
+     *
+     * @return Fichier
+     */
+    public function setAlt($alt)
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    /**
+     * Get alt
+     *
+     * @return string
+     */
+    public function getAlt()
+    {
+        return $this->alt;
     }
 }

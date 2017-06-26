@@ -1,9 +1,14 @@
 {% extends '@EGamebook/layout.html.twig' %}
 
+{% block menu %}
+    <img class="menuRose responsive-img" src="{{ asset('EGamebookBundle/Resources/public/images/menuRose.png') }}">
+{% endblock %}
+
 {% block body %}
 
 <div class="container">
     <div class="row">
+
         <div class="card-panel col s12">
                  <span class="flow-text">
 
@@ -18,11 +23,11 @@
                         {% endif %}
                      {{ chapter.decision }}
 
-                     {% if chapter.fichier is null %}
-                         <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
-                        {% else %}
-                         <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ chapter.fichier.src ) }}">
-                     {% endif %}
+                     {#{% if chapter.fichier is null %}#}
+                         {#<img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">#}
+                        {#{% else %}#}
+                         {#<img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ chapter.fichier.src ) }}">#}
+                     {#{% endif %}#}
                  </span>
 
             <div class="collection">
@@ -36,5 +41,5 @@
             </div>
         </div>
     </div>
-
+</div>
     {% endblock %}

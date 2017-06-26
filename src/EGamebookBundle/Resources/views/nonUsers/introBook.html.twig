@@ -5,20 +5,20 @@
 <div class="container">
     <div class="row">
         <div class="row-full">
-            <a href="{{ path('e_gamebook_read', {'number': 1 , 'id': book.id}) }}">
+            <a href="{{ path('e_gamebook_1') }}">
 
 
-                {% if book.fichier is null %}
-                    <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
-                {% else %}
-                    <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier.src ) }}">
-                {% endif %} <a/>
+                {#{% if book.fichier is null %}#}
+                    <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/coverIntro.png') }}">
+                {#{% else %}#}
+                    {#<img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier.src ) }}">#}
+               <a/>
         </div>
+{##}
 
-
-        <div class="wrap">
-            <a href="{{ path('e_gamebook_read', {'number': 1 , 'id': book.id}) }}" class="button"><p>Start Adventure</p></a>
-        </div>
+        {#<div class="wrap">#}
+            {#<a href="{{ path('e_gamebook_read', {'number': 1 , 'id': book.id}) }}" class="button"><p>Start Adventure</p></a>#}
+        {#</div>#}
     </div>
 </div>
 

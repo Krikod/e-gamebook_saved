@@ -14,10 +14,11 @@ e_gamebook_list:
     path:     /list
     defaults: { _controller: EGamebookBundle:View:listBooks }
 
-e_gamebook_intro:
-    path:     /intro/{id}
-    defaults: { _controller: EGamebookBundle:View:introBook }
-    methods:  GET
+#e_gamebook_intro:
+#    path:     /intro
+##    {id}
+#    defaults: { _controller: EGamebookBundle:View:introBook }
+##    methods:  GET
 
 e_gamebook_read:
     path:     /read/{number}/{id}
@@ -28,3 +29,68 @@ e_gamebook_firsPage:
     path:     /
     defaults: { _controller: EGamebookBundle:View:firstPage }
 
+e_gamebook_intro_pres:
+    path:     /introp
+#    {id}
+    defaults: { _controller: EGamebookBundle:View:introPres}
+#    methods:  GET
+
+e_gamebook_1:
+    path:     /un
+    defaults: { _controller: EGamebookBundle:View:un }
+
+e_gamebook_2_1:
+    path:     /deuxun
+    defaults: { _controller: EGamebookBundle:View:deuxun }
+
+e_gamebook_2_2:
+    path:     /deuxdeux
+    defaults: { _controller: EGamebookBundle:View:deuxdeux }
+
+e_gamebook_3_1:
+    path:     /troisun
+    defaults: { _controller: EGamebookBundle:View:troisun }
+
+e_gamebook_3_2:
+    path:     /troisdeux
+    defaults: { _controller: EGamebookBundle:View:troisdeux}
+
+e_gamebook_3_3:
+    path:     /troistrois
+    defaults: { _controller: EGamebookBundle:View:troistrois}
+
+e_gamebook_3_4:
+    path:     /troisquatre
+    defaults: { _controller: EGamebookBundle:View:troisquatre}
+
+e_gamebook_4_1:
+    path:     /quatreun
+    defaults: { _controller: EGamebookBundle:View:quatreun}
+
+e_gamebook_4_2:
+    path:     /quatredeux
+    defaults: { _controller: EGamebookBundle:View:quatredeux}
+
+e_gamebook_4_3:
+    path:     /quatretrois
+    defaults: { _controller: EGamebookBundle:View:quatretrois}
+
+e_gamebook_4_4:
+    path:     /quatrequatre
+    defaults: { _controller: EGamebookBundle:View:quatrequatre }
+
+e_gamebook_4_5:
+    path:     /quatrecinq
+    defaults: { _controller: EGamebookBundle:View:quatrecinq }
+
+e_gamebook_4_6:
+    path:     /quatresix
+    defaults: { _controller: EGamebookBundle:View:quatresix }
+
+e_gamebook_4_7:
+    path:     /quatresept
+    defaults: { _controller: EGamebookBundle:View:quatresept }
+
+e_gamebook_4_8:
+    path:     /quatrehuit
+    defaults: { _controller: EGamebookBundle:View:quatrehuit }

@@ -1,0 +1,43 @@
+{% extends '@EGamebook/layout.html.twig' %}
+
+{% block menu %}
+    <img class="menuRose responsive-img" src="{{ asset('bundles/platform/img/menuRose.png') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="card-panel col s12">
+                 <div class="flow-text">
+                    <p>
+                        I just left the crime scene and hurried to the elevator. Back into my room I felt like
+                        an absolute idiot. I thought he wanted to have dinner with me, and it turns out he was just
+                        being nice inviting me to join him and his friends, probably because he felt sorry I was by
+                        myself.
+                    </p>
+                     <p>
+                         Just change into something casual and join them Ruby, be the queen of the party like only you
+                         know and show that man what you can do.
+                     </p>
+
+                 </div>
+
+
+
+                    <div class="wrap">
+                        <a href="{{ path('e_gamebook_4_5') }}"  class="button">
+                            Get changed and go back down.
+                        </a>
+                    </div>
+                    <div class="wrap">
+                        <a href="{{ path('e_gamebook_4_6') }}"  class="button">
+                            Just go to sleep Ruby, that was an omen
+                        </a>
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -8,7 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    brochures_directory: '%kernel.root_dir%/../web/bundles/platform/img'
+    brochures_directory: '%kernel.root_dir%/../web/bundles/platform/img/'
 
 framework:
     #esi: ~
@@ -36,6 +36,10 @@ framework:
     assets: ~
     php_errors:
         log: true
+
+#Supprime la barre PROFILER au bas des pages.
+    profiler:
+        collect: false
 
 # Twig Configuration
 twig:
