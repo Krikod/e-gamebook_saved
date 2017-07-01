@@ -21,12 +21,7 @@ class ChaptersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('number', IntegerType::class)
-            ->add('content', FroalaEditorType::class, array(
-                "language" => "fr",
-    "toolbarInline" => true,
-    "tableColors" => [ "#FFFFFF", "#FF0000" ],
-    "saveParams" => [ "id" => "myEditorField" ]
-))
+            ->add('content', TextareaType::class)
            // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
             ->add('decision', TextareaType::class)
             ->add('buttonText', TextType::class)

@@ -36,6 +36,8 @@ class BookController extends Controller
     public function newAction(Request $request)
     {
         $book = new Book();
+
+      
         $form = $this->createForm('EGamebookBundle\Form\BookType', $book);
         $form->handleRequest($request);
 
