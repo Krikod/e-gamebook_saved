@@ -11,7 +11,7 @@
                     {% if book.fichier is null %}
                         <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
                     {% else %}
-                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier.src ) }}">
+                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier ) }}">
                     {% endif %}
                 </a>
             </div>

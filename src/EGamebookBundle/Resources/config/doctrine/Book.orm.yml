@@ -37,15 +37,14 @@ EGamebookBundle\Entity\Book:
             mappedBy: book
             cascade: ["persist"]
 
-        fichiers:
-            targetEntity: EGamebookBundle\Entity\Fichier
-            mappedBy: book
-            cascade: ['all']
-
     manyToOne:
         user:
             targetEntity: EGamebookBundle\Entity\User
             inversedBy: books
             cascade: ["persist"]
+
+        fichiers:
+            targetEntity: EGamebookBundle\Entity\Fichier
+            cascade: ["persist", "remove"]
 
 

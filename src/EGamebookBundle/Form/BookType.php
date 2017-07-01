@@ -21,9 +21,7 @@ class BookType extends AbstractType
             ->add('year')
             ->add('isbn')
 
-            ->add('fichiers', FichierType::class, array(
-                'data_class' => null
-            ));
+            ->add('fichiers', FichierType::class);
     }
 
 

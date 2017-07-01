@@ -10,148 +10,82 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Fichier
 {
     /**
-     * @var array $file
+     * @var array
      */
-    private $files = array();
-
-
-
+    private $srcs = array();
     /**
-     * Attribut permettant de stocker le nom de mon fichier en preRemove
-     * @var string $tempName
+     * Set urls
+     *
+     * @param array $urls
+     *
+     * @return Fichier
      */
-    private $tempNames = array();
-
-    /**
-     * @param UploadedFile $file
-     */
-    public function setFiles($files)
+    public function setSrcs($src)
     {
-        $this->files = $files;
-
-//        foreach ($this->files as $fichier){
-//
-//            if ($fichier->src != null){
-//                // On stock le nom de l'image à supprimer
-//                $fichier->tempName[] = $fichier->src;
-//
-//                // On réinitialise les champs de notre objet
-//                $fichier->src = null;
-//                $fichier->alt = null;
-//            }
-//        }
-
+         foreach ($src as $url){
+            array_push($this->srcs, $url);
+        }
+        return $this;
     }
-
     /**
+     * Get urls
+     *
      * @return array
      */
-    public function getFiles()
+    public function getSrcs()
     {
-        return $this->files;
+        $srcs = array();
+        foreach ($this->srcs as $url){
+            array_push($srcs, $url);
+        }
+        return $srcs;
     }
+    public $files;
 
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function preUpload()
+    protected function getUploadDir()
     {
-        if (empty($this->files)) {
-            return;
-        }
-
-        foreach ($this->files as $file){
-
-            $fichier = new Fichier();
-            $fichier->src = uniqid() . '.' . $file->guessExtension();
-
-            $alt = $file->getClientOriginalName();
-            $ext = $file->guessExtension();
-
-            $fichier->alt = str_replace('.'. $ext, '', $alt);
-
-
-            $fichier->setBook($this);
-            $this->getBook()->addFichier($fichier);
-
-        }
-
+        return 'bundles/platform/img/';
     }
-
-    /**
-     * @ORM\PostPersist
-     * @ORM\PostUpdate
-     */
-    public function upload()
+    protected function getUploadRootDir()
     {
-        $i = 0;
-
-        if (null === $this->file) {
-            return;
-        }
-
-        if ($this->tempName != null){
-            $oldfile= $this->getUploadDir() . $this->tempName;
-
-            if (file_exists($oldfile)){
-                unlink($oldfile);
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+    public function upload($files)
+    {
+        if ($files){
+            foreach($files as $file)
+            {
+                $url = uniqid() . "." . $file->guessExtension();
+                array_push($this->srcs, $url);
+                $file->move($this->getUploadRootDir(), $url);
+                unset($file);
             }
         }
-
-        $this->file->move($this->getUploadDir(), $this->src);
-
-
     }
-
-    /**
-     * @ORM\PreRemove
-     */
-    public function preRemove()
+    public function removeUpload($files)
     {
-        // Add your code here
-    }
-
-    /**
-     * @ORM\PostRemove
-     */
-    public function remove()
-    {
-        $i = 0;
-
-        $fileToRemove = $this->getUploadDir() . $this->src;
-        if (file_exists($fileToRemove))
-        {
-            unlink($fileToRemove);
+        if (gettype($files) == 'array'){
+            foreach ($files as $file){
+                if ($file = $this->getUploadRootDir().'/'.$file) {
+                    unlink($file);
+                }
+            }
+        }
+        else{
+            if (false !== $key = array_search($files, $this->srcs, true)) {
+                unset($this->srcs[$key]);
+                $this->srcs = array_values($this->srcs);
+                unlink($this->getUploadRootDir().'/'.$files);
+            }
         }
     }
-
-    public function getUploadDir(){
-        $i = 0;
-
-        return __DIR__ . '/../../../web/bundles/platform/img/';
-    }
+    // GENERATED CODE //
 
 
     /**
      * @var integer
      */
     private $id;
-
-    /**
-     * @var string
-     */
-    private $src;
-
-    /**
-     * @var string
-     */
-    private $alt;
-
-    /**
-     * @var \EGamebookBundle\Entity\Book
-     */
-    private $book;
 
 
     /**
@@ -164,75 +98,5 @@ class Fichier
         return $this->id;
     }
 
-    /**
-     * Set src
-     *
-     * @param string $src
-     *
-     * @return Fichier
-     */
-    public function setSrc($src)
-    {
-        $this->src = $src;
 
-        return $this;
-    }
-
-    /**
-     * Get src
-     *
-     * @return string
-     */
-    public function getSrc()
-    {
-        return $this->src;
-    }
-
-    /**
-     * Set alt
-     *
-     * @param string $alt
-     *
-     * @return Fichier
-     */
-    public function setAlt($alt)
-    {
-        $this->alt = $alt;
-
-        return $this;
-    }
-
-    /**
-     * Get alt
-     *
-     * @return string
-     */
-    public function getAlt()
-    {
-        return $this->alt;
-    }
-
-    /**
-     * Set book
-     *
-     * @param \EGamebookBundle\Entity\Book $book
-     *
-     * @return Fichier
-     */
-    public function setBook(\EGamebookBundle\Entity\Book $book = null)
-    {
-        $this->book = $book;
-
-        return $this;
-    }
-
-    /**
-     * Get book
-     *
-     * @return \EGamebookBundle\Entity\Book
-     */
-    public function getBook()
-    {
-        return $this->book;
-    }
 }

@@ -8,7 +8,6 @@ namespace EGamebookBundle\Entity;
 class Book
 {
 
-
     /**
      * @var integer
      */
@@ -50,14 +49,14 @@ class Book
     private $chapters;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $fichiers;
-
-    /**
      * @var \EGamebookBundle\Entity\User
      */
     private $user;
+
+    /**
+     * @var \EGamebookBundle\Entity\Fichier
+     */
+    private $fichiers;
 
     /**
      * Constructor
@@ -65,7 +64,6 @@ class Book
     public function __construct()
     {
         $this->chapters = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->fichiers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -257,40 +255,6 @@ class Book
     }
 
     /**
-     * Add fichier
-     *
-     * @param \EGamebookBundle\Entity\Fichier $fichier
-     *
-     * @return Book
-     */
-    public function addFichier(\EGamebookBundle\Entity\Fichier $fichier)
-    {
-        $this->fichiers[] = $fichier;
-
-        return $this;
-    }
-
-    /**
-     * Remove fichier
-     *
-     * @param \EGamebookBundle\Entity\Fichier $fichier
-     */
-    public function removeFichier(\EGamebookBundle\Entity\Fichier $fichier)
-    {
-        $this->fichiers->removeElement($fichier);
-    }
-
-    /**
-     * Get fichiers
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFichiers()
-    {
-        return $this->fichiers;
-    }
-
-    /**
      * Set user
      *
      * @param \EGamebookBundle\Entity\User $user
@@ -312,5 +276,29 @@ class Book
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set fichiers
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichiers
+     *
+     * @return Book
+     */
+    public function setFichiers(\EGamebookBundle\Entity\Fichier $fichiers = null)
+    {
+        $this->fichiers = $fichiers;
+
+        return $this;
+    }
+
+    /**
+     * Get fichiers
+     *
+     * @return \EGamebookBundle\Entity\Fichier
+     */
+    public function getFichiers()
+    {
+        return $this->fichiers;
     }
 }

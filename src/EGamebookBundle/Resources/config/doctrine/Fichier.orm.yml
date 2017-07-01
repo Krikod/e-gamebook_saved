@@ -9,28 +9,21 @@ EGamebookBundle\Entity\Fichier:
             generator:
                 strategy: AUTO
     fields:
-        src:
-            type: string
-            length: 255
-        alt:
-            type: string
-            length: 255
+        srcs:
+            type: array
 
-    lifecycleCallbacks:
 
-        #for create
-        prePersist: [ preUpload ]
-        postPersist: [ upload ]
 
-        #for edit
-        preUpdate: [ preUpload ]
-        postUpdate: [ upload ]
-
-        #for remove
-        preRemove: [ preRemove ]
-        postRemove: [ remove ]
-
-    manyToOne:
-        book:
-            targetEntity: EGamebookBundle\Entity\Book
-            inversedBy: fichiers
+    lifecycleCallbacks: []
+#
+#        #for create
+#        prePersist: [ preUpload ]
+#        postPersist: [ upload ]
+#
+#        #for edit
+#        preUpdate: [ preUpload ]
+#        postUpdate: [ upload ]
+#
+#        #for remove
+#        preRemove: [ preRemove ]
+#        postRemove: [ remove ]

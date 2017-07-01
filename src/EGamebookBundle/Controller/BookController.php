@@ -51,7 +51,7 @@ class BookController extends Controller
 
             $book->setUser($this->getUser());
 
-
+            $book->getFichiers()->upload($book->getFichiers()->files);
 //            foreach ($fichier as $file){
 //               $fileNew =  new Fichier();
 //            }
