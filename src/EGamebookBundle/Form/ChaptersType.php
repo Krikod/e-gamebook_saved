@@ -3,6 +3,7 @@
 namespace EGamebookBundle\Form;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;

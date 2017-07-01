@@ -37,9 +37,6 @@ class BookController extends Controller
     public function newAction(Request $request)
     {
         $book = new Book();
-//        $fichier = new Fichier();
-////
-//        $book->addFichier($fichier);
 
         $form = $this->createForm('EGamebookBundle\Form\BookType', $book);
 
@@ -52,10 +49,6 @@ class BookController extends Controller
             $book->setUser($this->getUser());
 
             $book->getFichiers()->upload($book->getFichiers()->files);
-//            foreach ($fichier as $file){
-//               $fileNew =  new Fichier();
-//            }
-
 
             $em->persist($book);
 

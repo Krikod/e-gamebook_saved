@@ -2,6 +2,7 @@
 
 namespace EGamebookBundle\Form;
 
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class BookType extends AbstractType
         $builder->add('title')
             ->add('author')
             ->add('editor')
-            ->add('resume')
+            ->add('resume', FroalaEditorType::class)
             ->add('year')
             ->add('isbn')
 

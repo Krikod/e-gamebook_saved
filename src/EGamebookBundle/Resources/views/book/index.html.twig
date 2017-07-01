@@ -31,14 +31,14 @@
                 <td>{{ book.editor }}</td>
                 <td>{{ book.year }}</td>
                 <td>{{ book.isbn }}</td>
-                <td>{% if book.fichiers.srcs is not defined %}
+                <td>{% if book.fichiers.srcs is empty %}
                     {% else %}
                     {% for fichier in book.fichiers.srcs %}
                        {% if fichier is not defined %}
                     {% else %}
                         {{ fichier }}
                         {% endif%}
-                        {#<img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ fichier.srcs ) }}">#}
+                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ fichier) }}">
                     {% endfor %}
                     {% endif %}
                 </td>

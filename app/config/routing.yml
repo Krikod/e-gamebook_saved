@@ -4,3 +4,7 @@ e_gamebook:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+kms_froala_editor:
+  resource: "@KMSFroalaEditorBundle/Resources/config/routing.yml"
+  prefix:   /froalaeditor
