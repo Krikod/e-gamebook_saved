@@ -14,7 +14,14 @@ class FichierType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('file', FileType::class);
+        $builder->add('files', FileType::class,
+
+                array('label' => 'Image',
+                    'required' => false,
+                    'multiple' => true,
+                    'attr' => array('accept' => 'image/*'))
+
+        );
     }
     
     /**

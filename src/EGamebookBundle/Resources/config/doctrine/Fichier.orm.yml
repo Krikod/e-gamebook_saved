@@ -29,3 +29,8 @@ EGamebookBundle\Entity\Fichier:
         #for remove
         preRemove: [ preRemove ]
         postRemove: [ remove ]
+
+    manyToOne:
+        book:
+            targetEntity: EGamebookBundle\Entity\Book
+            inversedBy: fichiers

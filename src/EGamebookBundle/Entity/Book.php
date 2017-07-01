@@ -7,7 +7,8 @@ namespace EGamebookBundle\Entity;
  */
 class Book
 {
-     
+
+
     /**
      * @var integer
      */
@@ -26,6 +27,11 @@ class Book
     /**
      * @var string
      */
+    private $resume;
+
+    /**
+     * @var string
+     */
     private $editor;
 
     /**
@@ -34,7 +40,7 @@ class Book
     private $year;
 
     /**
-     * @var integer
+     * @var string
      */
     private $isbn;
 
@@ -44,11 +50,22 @@ class Book
     private $chapters;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $fichiers;
+
+    /**
+     * @var \EGamebookBundle\Entity\User
+     */
+    private $user;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->chapters = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fichiers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -110,6 +127,30 @@ class Book
     }
 
     /**
+     * Set resume
+     *
+     * @param string $resume
+     *
+     * @return Book
+     */
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    /**
+     * Get resume
+     *
+     * @return string
+     */
+    public function getResume()
+    {
+        return $this->resume;
+    }
+
+    /**
      * Set editor
      *
      * @param string $editor
@@ -160,7 +201,7 @@ class Book
     /**
      * Set isbn
      *
-     * @param integer $isbn
+     * @param string $isbn
      *
      * @return Book
      */
@@ -174,7 +215,7 @@ class Book
     /**
      * Get isbn
      *
-     * @return integer
+     * @return string
      */
     public function getIsbn()
     {
@@ -214,11 +255,40 @@ class Book
     {
         return $this->chapters;
     }
-    /**
-     * @var \EGamebookBundle\Entity\User
-     */
-    private $user;
 
+    /**
+     * Add fichier
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichier
+     *
+     * @return Book
+     */
+    public function addFichier(\EGamebookBundle\Entity\Fichier $fichier)
+    {
+        $this->fichiers[] = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichier
+     *
+     * @param \EGamebookBundle\Entity\Fichier $fichier
+     */
+    public function removeFichier(\EGamebookBundle\Entity\Fichier $fichier)
+    {
+        $this->fichiers->removeElement($fichier);
+    }
+
+    /**
+     * Get fichiers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFichiers()
+    {
+        return $this->fichiers;
+    }
 
     /**
      * Set user
@@ -242,63 +312,5 @@ class Book
     public function getUser()
     {
         return $this->user;
-    }
-    /**
-     * @var string
-     */
-    private $resume;
-
-
-    /**
-     * Set resume
-     *
-     * @param string $resume
-     *
-     * @return Book
-     */
-    public function setResume($resume)
-    {
-        $this->resume = $resume;
-
-        return $this;
-    }
-
-    /**
-     * Get resume
-     *
-     * @return string
-     */
-    public function getResume()
-    {
-        return $this->resume;
-    }
-    /**
-     * @var \EGamebookBundle\Entity\Fichier
-     */
-    private $fichier;
-
-
-    /**
-     * Set fichier
-     *
-     * @param \EGamebookBundle\Entity\Fichier $fichier
-     *
-     * @return Book
-     */
-    public function setFichier(\EGamebookBundle\Entity\Fichier $fichier = null)
-    {
-        $this->fichier = $fichier;
-
-        return $this;
-    }
-
-    /**
-     * Get fichier
-     *
-     * @return \EGamebookBundle\Entity\Fichier
-     */
-    public function getFichier()
-    {
-        return $this->fichier;
     }
 }

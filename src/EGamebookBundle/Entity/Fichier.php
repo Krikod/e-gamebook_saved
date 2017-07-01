@@ -1,6 +1,7 @@
 <?php
 
 namespace EGamebookBundle\Entity;
+
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -9,39 +10,45 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class Fichier
 {
     /**
-     * @var UploadedFile $file
+     * @var array $file
      */
-    private $file;
+    private $files = array();
+
+
 
     /**
      * Attribut permettant de stocker le nom de mon fichier en preRemove
      * @var string $tempName
      */
-    private $tempName;
+    private $tempNames = array();
 
     /**
      * @param UploadedFile $file
      */
-    public function setFile(UploadedFile $file)
+    public function setFiles($files)
     {
-        $this->file = $file;
+        $this->files = $files;
 
-        if ($this->src != null){
-            // On stock le nom de l'image à supprimer
-            $this->tempName = $this->src;
+//        foreach ($this->files as $fichier){
+//
+//            if ($fichier->src != null){
+//                // On stock le nom de l'image à supprimer
+//                $fichier->tempName[] = $fichier->src;
+//
+//                // On réinitialise les champs de notre objet
+//                $fichier->src = null;
+//                $fichier->alt = null;
+//            }
+//        }
 
-            // On réinitialise les champs de notre objet
-            $this->src = null;
-            $this->alt= null;
-        }
     }
 
     /**
-     * @return UploadedFile
+     * @return array
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->file;
+        return $this->files;
     }
 
     /**
@@ -50,17 +57,25 @@ class Fichier
      */
     public function preUpload()
     {
-
-        if (null === $this->file) {
+        if (empty($this->files)) {
             return;
         }
 
-        $this->src = uniqid() . '.' . $this->file->guessExtension();
+        foreach ($this->files as $file){
 
-        $alt= $this->file->getClientOriginalName();
-        $ext = $this->file->guessExtension();
+            $fichier = new Fichier();
+            $fichier->src = uniqid() . '.' . $file->guessExtension();
 
-        $this->alt=str_replace('.'. $ext, '', $alt);
+            $alt = $file->getClientOriginalName();
+            $ext = $file->guessExtension();
+
+            $fichier->alt = str_replace('.'. $ext, '', $alt);
+
+
+            $fichier->setBook($this);
+            $this->getBook()->addFichier($fichier);
+
+        }
 
     }
 
@@ -70,6 +85,8 @@ class Fichier
      */
     public function upload()
     {
+        $i = 0;
+
         if (null === $this->file) {
             return;
         }
@@ -100,6 +117,8 @@ class Fichier
      */
     public function remove()
     {
+        $i = 0;
+
         $fileToRemove = $this->getUploadDir() . $this->src;
         if (file_exists($fileToRemove))
         {
@@ -108,15 +127,11 @@ class Fichier
     }
 
     public function getUploadDir(){
+        $i = 0;
 
         return __DIR__ . '/../../../web/bundles/platform/img/';
     }
 
-
-
-
-
-// GENERATED CODE
 
     /**
      * @var integer
@@ -133,6 +148,11 @@ class Fichier
      */
     private $alt;
 
+    /**
+     * @var \EGamebookBundle\Entity\Book
+     */
+    private $book;
+
 
     /**
      * Get id
@@ -142,6 +162,30 @@ class Fichier
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set src
+     *
+     * @param string $src
+     *
+     * @return Fichier
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * Get src
+     *
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
     }
 
     /**
@@ -167,30 +211,28 @@ class Fichier
     {
         return $this->alt;
     }
-    
-
 
     /**
-     * Set src
+     * Set book
      *
-     * @param string $src
+     * @param \EGamebookBundle\Entity\Book $book
      *
      * @return Fichier
      */
-    public function setSrc($src)
+    public function setBook(\EGamebookBundle\Entity\Book $book = null)
     {
-        $this->src = $src;
+        $this->book = $book;
 
         return $this;
     }
 
     /**
-     * Get src
+     * Get book
      *
-     * @return string
+     * @return \EGamebookBundle\Entity\Book
      */
-    public function getSrc()
+    public function getBook()
     {
-        return $this->src;
+        return $this->book;
     }
 }

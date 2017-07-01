@@ -19,3 +19,43 @@
     </div>
 </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+
+    $(document).ready(function () {
+        $('select').material_select();
+
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+
+        {#$('form[name="egamebookbundle_book"]').submit(function (e) {#}
+
+            {#e.preventDefault(); // on empêche le bouton d'envoyer le formulaire#}
+            {#// on sécurise les données#}
+            {#var message = $(this).serialize();#}
+
+{#//            var remiseA = $(this);#}
+
+            {#$.ajax({#}
+
+                {#method: 'post',#}
+                {#url:'{{ path('book_new' )}}',#}
+                {#data: message,#}
+
+
+{#//                success: function (response) {#}
+{#//                    $('#textAdded').append(response).hide().slideDown(200);#}
+{#//                    remiseA.trigger('reset');#}
+{#//                }#}
+            {#})#}
+
+        {#});#}
+
+    });
+
+
+
+</script>
+{% endblock %}

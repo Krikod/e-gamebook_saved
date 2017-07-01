@@ -3,6 +3,7 @@
 namespace EGamebookBundle\Controller;
 
 use EGamebookBundle\Entity\Book;
+use EGamebookBundle\Entity\Fichier;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -36,14 +37,28 @@ class BookController extends Controller
     public function newAction(Request $request)
     {
         $book = new Book();
+//        $fichier = new Fichier();
+////
+//        $book->addFichier($fichier);
+
         $form = $this->createForm('EGamebookBundle\Form\BookType', $book);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
 
             $book->setUser($this->getUser());
+
+
+//            foreach ($fichier as $file){
+//               $fileNew =  new Fichier();
+//            }
+
+
             $em->persist($book);
+
             $em->flush();
 
             return $this->redirectToRoute('book_show', array('id' => $book->getId()));

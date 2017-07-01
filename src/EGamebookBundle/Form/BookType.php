@@ -3,6 +3,7 @@
 namespace EGamebookBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,8 +20,13 @@ class BookType extends AbstractType
             ->add('resume')
             ->add('year')
             ->add('isbn')
-            ->add('fichier', FichierType::class );
+
+            ->add('fichiers', FichierType::class, array(
+                'data_class' => null
+            ));
     }
+
+
     
     /**
      * {@inheritdoc}
